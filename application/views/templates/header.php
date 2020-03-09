@@ -12,6 +12,7 @@
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="<?= base_url() ?>css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/main.87c0748b313a1dda75f5.js"> </script>
 </head>
@@ -50,9 +51,6 @@
         </span>
       </div>
       <div class="app-header__content">
-        <div class="app-header-left">
-
-        </div>
         <div class="app-header-right">
           <div class="header-btn-lg pr-0">
             <div class="widget-content p-0">
@@ -60,27 +58,17 @@
                 <div class="widget-content-left">
                   <div class="btn-group">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                      <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                    </a>
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
-                      <div class="dropdown-menu-header">
-                        <div class="dropdown-menu-header-inner bg-info">
-                          <div class="menu-header-image opacity-2" style="background-image: url('assets/images/dropdown-header/city3.jpg');">
-                          </div>
-                          <div class="menu-header-content text-left">
-                            <div class="widget-content p-0">
-                              <div class="widget-content-wrapper">
-                                <div class="widget-content-left mr-3">
-                                </div>
-                                <div class="widget-content-left">
-                                  <div class="widget-heading"><?= $this->session->userdata("nama") ?></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      <div class="d-flex justify-content-center align-items-center">
+                        <i class="fas fa-users fa-2x mr-2"></i>
+                        <?= $this->session->userdata("nama") ?>
+                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
                       </div>
-                      <div class="scroll-area-xs" style="height: 150px;">
+                    </a>
+                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-sm dropdown-menu dropdown-menu-right">
+                      <div class="dropdown-menu-header">
+                      
+                      </div>
+                      <div class="scroll-area-xs">
                         <div class="scrollbar-container ps">
                           <ul class="nav flex-column">
                             <li class="nav-item-header nav-item">My Account
@@ -119,13 +107,13 @@
             <ul class="vertical-nav-menu">
               <li>
                 <a href="<?= base_url() ?>dashboard">
-                  <i class="metismenu-icon"></i>Dashboard
+                  <i class="fas fa-columns fa-lg mr-2"></i> Dashboard
                 </a>
 
               </li>
               <li>
                 <a href="<?= base_url() ?>kursus">
-                  <i class="metismenu-icon"></i>Kursus
+                  <i class="fab fa-discourse fa-lg mr-2"></i> Kursus
                 </a>
                 <ul>
                   <li>
@@ -147,22 +135,22 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>user">
-                  <i class="metismenu-icon"></i>User
+                  <i class="fas fa-user fa-lg mr-2"></i> User
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>dokter">
-                  <i class="metismenu-icon"></i>Dokter
+                  <i class="fas fa-user-md fa-lg mr-2"></i> Dokter
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>pembayaran">
-                  <i class="metismenu-icon"></i>Pembayaran
+                  <i class="fas fa-money-check-alt mr-2"></i> Pembayaran
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>log">
-                  <i class="metismenu-icon"></i>Log Aktivitas
+                  <i class="fas fa-chart-line fa-lg mr-2"></i> Log Aktivitas
                 </a>
               </li>
               <li>
@@ -195,6 +183,7 @@
               <li>
                 <a href="<?= base_url() ?>lainnya">
                   <i class="metismenu-icon"></i>Lainnya
+
                 </a>
                 <ul>
                   <li>

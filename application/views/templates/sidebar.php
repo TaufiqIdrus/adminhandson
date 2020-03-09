@@ -4,7 +4,7 @@
             <ul class="vertical-nav-menu">
                 <li>
                     <a href="index.php">
-                        <i class="metismenu-icon"></i>Dashboard
+                        <i class="fas fa-tachometer-alt bg-dark"></i> Dashboard
                     </a>
                 </li>
                 <li>

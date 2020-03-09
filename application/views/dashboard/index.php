@@ -4,8 +4,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                        </i>
+                        <i class="fas fa-chart-bar fa-sm"></i>
                     </div>
                     <div>Dashboard Utama
                         <div class="page-title-subheading">Mengenai Ringkasan Keuntungan dan Log Aktivitas
@@ -31,15 +30,15 @@
                     <div class="col-sm-6 col-md-4 col-xl-4">
                         <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
                             <div class="icon-wrapper rounded-circle">
-                                <div class="icon-wrapper-bg opacity-10 bg-warning"></div>
-                                <i class="lnr-laptop-phone text-dark opacity-8"></i>
+                                <div class="icon-wrapper-bg opacity-10 bg-danger"></div>
+                                <i class="fas fa-angle-double-down text-white"></i>
                             </div>
                             <div class="widget-chart-content">
                                 <div class="widget-subheading">Pengeluaran</div>
                                 <div class="widget-numbers">1,7M</div>
                                 <div class="widget-description opacity-8 text-focus">
                                     <div class="d-inline text-danger pr-1">
-                                        <i class="fa fa-angle-down"></i>
+                                        <i class="fas fa-angle-down"></i>
                                         <span class="pl-1">54.1%</span>
                                     </div>
                                     less earnings
@@ -51,16 +50,16 @@
                     <div class="col-sm-6 col-md-4 col-xl-4">
                         <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
                             <div class="icon-wrapper rounded-circle">
-                                <div class="icon-wrapper-bg opacity-9 bg-danger"></div>
-                                <i class="lnr-graduation-hat text-white"></i>
+                                <div class="icon-wrapper-bg opacity-9 bg-success"></div>
+                                <i class="fas fa-angle-double-up text-white"></i>
                             </div>
                             <div class="widget-chart-content">
                                 <div class="widget-subheading">Pendapatan</div>
-                                <div class="widget-numbers"><span>9M</span></div>
+                                <div class="widget-numbers">9M</div>
                                 <div class="widget-description opacity-8 text-focus">
                                     Grow Rate
-                                    <span class="text-info pl-1">
-                                        <i class="fa fa-angle-down"></i>
+                                    <span class="text-success pl-1">
+                                        <i class="fa fa-angle-up"></i>
                                         <span class="pl-1">14.1%</span>
                                     </span>
                                 </div>
@@ -71,12 +70,12 @@
                     <div class="col-sm-12 col-md-4 col-xl-4">
                         <div class="card no-shadow rm-border bg-transparent widget-chart text-left">
                             <div class="icon-wrapper rounded-circle">
-                                <div class="icon-wrapper-bg opacity-9 bg-success"></div>
-                                <i class="lnr-apartment text-white"></i>
+                                <div class="icon-wrapper-bg opacity-9 bg-warning"></div>
+                                <i class="fas fa-hand-holding-usd text-white"></i>
                             </div>
                             <div class="widget-chart-content">
                                 <div class="widget-subheading">Keuntungan </div>
-                                <div class="widget-numbers text-success"><span>$563</span></div>
+                                <div class="widget-numbers"><span>$563</span></div>
                                 <div class="widget-description text-focus">
                                     Increased by
                                     <span class="text-warning pl-1">
@@ -91,16 +90,18 @@
                 <div class="text-center d-block p-3 card-footer">
                     <button class="btn-pill btn-shadow btn-wide fsize-1 btn btn-primary btn-lg">
                         <span class="mr-2 opacity-7">
-                            <i class="icon icon-anim-pulse ion-ios-analytics-outline"></i>
+                            <i class="fas fa-book text-white"></i>
                         </span>
                         <span class="mr-1">View Complete Report</span>
                     </button>
                 </div>
             </div>
-            <div class="row">
-                <div class="card-body">
-                    <div class="card-title">World Map</div>
-                    <div id="world-map-gdp" style="width: 100%; height: 300px;"></div>
+            <div class="row mb-2 px-2">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <div class="card-title">World Map</div>
+                        <div id="world-map-gdp" style="width: 100%; height: 300px;"></div>
+                    </div>
                 </div>
             </div>
             <div class="row">

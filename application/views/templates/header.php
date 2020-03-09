@@ -83,7 +83,6 @@
                       <div class="scroll-area-xs" style="height: 150px;">
                         <div class="scrollbar-container ps">
                           <ul class="nav flex-column">
-
                             <li class="nav-item-header nav-item">My Account
                             </li>
                             <li class="nav-item">
@@ -135,12 +134,12 @@
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>">
+                    <a href="<?= base_url() ?>videokursus">
                       <i class="metismenu-icon"></i>Video Kursus
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>">
+                    <a href="<?= base_url() ?>quiz">
                       <i class="metismenu-icon"></i>Quiz
                     </a>
                   </li>
@@ -168,6 +167,33 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>lainnya">
+                  <i class="metismenu-icon"></i>Laporan
+                </a>
+                <ul>
+                  <li>
+                    <a href="<?= base_url() ?>kategori">
+                      <i class="metismenu-icon"></i>User
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>bahasa">
+                      <i class="metismenu-icon"></i>Kursus
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>bahasa">
+                      <i class="metismenu-icon"></i>Keuangan
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>bahasa">
+                      <i class="metismenu-icon"></i>Quiz
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="<?= base_url() ?>lainnya">
                   <i class="metismenu-icon"></i>Lainnya
                 </a>
                 <ul>
@@ -183,6 +209,9 @@
                   </li>
                 </ul>
               </li>
+              
+
+
             </ul>
           </div>
         </div>

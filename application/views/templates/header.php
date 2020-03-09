@@ -155,7 +155,7 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>lainnya">
-                  <i class="metismenu-icon"></i>Laporan
+                  <i class="fas fa-paperclip fa-lg mr-2"></i> Laporan
                 </a>
                 <ul>
                   <li>
@@ -182,8 +182,7 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>lainnya">
-                  <i class="metismenu-icon"></i>Lainnya
-
+                  <i class="fas fa-list fa-lg mr-2"></i> Lainnya
                 </a>
                 <ul>
                   <li>

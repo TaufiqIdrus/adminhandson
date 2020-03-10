@@ -49,8 +49,12 @@ class Dokter extends CI_Controller
     {
         $data = array(
             'dokter' => $this->input->post('dokter'),
-            'deskripsi' => $this->input->post('deskripsi'),
+            'spesialis' => $this->input->post('spesialis'),
+            'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
+            'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
+            'motto' => $this->input->post('motto'),
             'insert_by' => $this->session->userdata("nama")
+
             
         );
         $data = $this->security->xss_clean($data);
@@ -68,8 +72,10 @@ class Dokter extends CI_Controller
         $time = now('Asia/Jakarta');
         $data = array(
             'dokter' => $this->input->post('dokter'),
-            'deskripsi' => $this->input->post('deskripsi'),
-            'insert_by' => $this->session->userdata("nama"),
+            'spesialis' => $this->input->post('spesialis'),
+            'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
+            'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
+            'motto' => $this->input->post('motto'),
             'last_update' => mdate($datestring, $time)
         );
         $id_dokter = $this->input->post('id_dokter');

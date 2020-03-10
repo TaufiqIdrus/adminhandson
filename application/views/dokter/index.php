@@ -32,7 +32,7 @@
                         foreach ($dokter as $row) {
                             echo "<tr>";
                             echo "<td>" . $row->id_dokter . "</td>";
-                            echo "<td>" . $row->nama_dokter . "</td>";
+                            echo "<td>" . $row->dokter . "</td>";
                             echo "<td>" . $row->spesialis . "</td>";
                             echo "<td>" . $row->rating . "</td>";
                             echo "<td>" . $row->insert_date . "</td>";

@@ -4,7 +4,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div>Tabel Dokter
-                        <div class="page-title-subheading">Pengajar Berprofesi Dokter pada Handson
+                        <div class="page-title-subheading">
                         </div>
                     </div>
                 </div>
@@ -28,29 +28,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
-                        <td>test</td>
+                        <?php
+                        foreach ($dokter as $row) {
+                            echo "<tr>";
+                            echo "<td>" . $row->id_dokter . "</td>";
+                            echo "<td>" . $row->nama_dokter . "</td>";
+                            echo "<td>" . $row->spesialis . "</td>";
+                            echo "<td>" . $row->rating . "</td>";
+                            echo "<td>" . $row->insert_date . "</td>";
+                            echo "<td>" . $row->last_update . "</td>";
+                        ?>
+                            <td>
+                                <a href="dokter/delete_dokter/<?= $row->id_dokter ?>" class="badge badge-danger ">Delete</a>
+                                <a href="dokter/update/<?= $row->id_dokter ?>" class="badge badge-success ">Update</a>
+                                <a href="dokter/detail/<?= $row->id_dokter ?>" class="badge badge-primary ">Detail</a>
 
-                        <td><a href="<?= base_url(); ?>" class="badge badge-danger ">Hapus</a>
-                            <a href="<?= base_url(); ?>dokter/update" class="badge badge-success ">Update</a>
-                            <a href="<?= base_url(); ?>" class="badge badge-primary ">Detail</a>
-                        </td>
+                            </td>
+                        <?php
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama dokter</th>
-                            <th>Spesialis</th>
-                            <th>Rating</th>
-                            <th>Insert date</th>
-                            <th>Last update</th>
-                            <th>Menu</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>

@@ -22,22 +22,59 @@ class Quiz extends CI_Controller
     function index()
     {
         $data['judul'] = 'Manage Quiz';
-        $data['quiz'] = $this->m_quiz->display();
+        $data['kursus'] = $this->m_quiz->display_kursus();
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/index', $data);
         $this->load->view('templates/footer');
     }
 
-    function insert()
+    function manage($id_kursus)
     {
-        $data['judul'] = 'Insert Quiz';
-        $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
-
+        $data['judul'] = 'Manage Soal Quiz';
+        $data['kursus'] = $this->m_quiz->display_kursus();
         $this->load->view('templates/header', $data);
-        $this->load->view('quiz/insert_quiz');
+        $this->load->view('quiz/manage_soal', $data);
         $this->load->view('templates/footer');
     }
+
+    function list($id_kursus)
+    {
+        $data['judul'] = 'List Soal';
+        $data['kursus'] = $this->m_quiz->display_kursus();
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/list_soal', $data);
+        $this->load->view('templates/footer');
+    }
+    
+    function insert()
+    {
+        $data['judul'] = 'Insert Soal Quiz';
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/insert_soal');
+        $this->load->view('templates/footer');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function update($id_quiz)
     {

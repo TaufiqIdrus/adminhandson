@@ -132,8 +132,8 @@
                 </ul>
               </li>
               <li>
-                <a href="<?= base_url() ?>user">
-                  <i class="fas fa-user fa-lg mr-2"></i>User
+                <a href="<?= base_url() ?>users">
+                  <i class="fas fa-user fa-lg mr-2"></i>Users
                 </a>
               </li>
               <li>
@@ -147,7 +147,7 @@
                 </a>
               </li>
               <li>
-                <a href="<?= base_url() ?>log">
+                <a href="<?= base_url() ?>logaktivitas">
                   <i class="fas fa-chart-line fa-lg mr-2"></i>Log Aktivitas
                 </a>
               </li>

@@ -99,7 +99,6 @@
         </div>
       </div>
     </div>
-
     <div class="app-main">
       <div class="app-sidebar sidebar-shadow">
         <div class="scrollbar-sidebar">
@@ -107,13 +106,12 @@
             <ul class="vertical-nav-menu">
               <li>
                 <a href="<?= base_url() ?>dashboard">
-                  <i class="fas fa-columns fa-lg mr-2"></i> Dashboard
+                  <i class="fas fa-columns fa-lg mr-2"></i>Dashboard
                 </a>
-
               </li>
               <li>
                 <a href="<?= base_url() ?>kursus">
-                  <i class="fab fa-discourse fa-lg mr-2"></i> Kursus
+                  <i class="fab fa-discourse fa-lg mr-2"></i>Kursus
                 </a>
                 <ul>
                   <li>
@@ -135,27 +133,27 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>user">
-                  <i class="fas fa-user fa-lg mr-2"></i> User
+                  <i class="fas fa-user fa-lg mr-2"></i>User
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>dokter">
-                  <i class="fas fa-user-md fa-lg mr-2"></i> Dokter
+                  <i class="fas fa-user-md fa-lg mr-2"></i>Dokter
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>pembayaran">
-                  <i class="fas fa-money-check-alt mr-2"></i> Pembayaran
+                  <i class="fas fa-money-check-alt mr-2"></i>Pembayaran
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>log">
-                  <i class="fas fa-chart-line fa-lg mr-2"></i> Log Aktivitas
+                  <i class="fas fa-chart-line fa-lg mr-2"></i>Log Aktivitas
                 </a>
               </li>
               <li>
                 <a href="<?= base_url() ?>lainnya">
-                  <i class="fas fa-paperclip fa-lg mr-2"></i> Laporan
+                  <i class="fas fa-paperclip fa-lg mr-2"></i>Laporan
                 </a>
                 <ul>
                   <li>
@@ -182,7 +180,7 @@
               </li>
               <li>
                 <a href="<?= base_url() ?>lainnya">
-                  <i class="fas fa-list fa-lg mr-2"></i> Lainnya
+                  <i class="fas fa-list fa-lg mr-2"></i>Lainnya
                 </a>
                 <ul>
                   <li>
@@ -197,9 +195,6 @@
                   </li>
                 </ul>
               </li>
-              
-
-
             </ul>
           </div>
         </div>

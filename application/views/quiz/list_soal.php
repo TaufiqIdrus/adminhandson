@@ -14,7 +14,10 @@
             </div>
         </div>
         <div class="main-card mb-3 card">
+
             <div class="card-body">
+                <a href="<?= base_url() ?>quiz" class="btn btn-secondary">Kembali</a>
+                <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>

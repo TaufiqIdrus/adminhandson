@@ -3,13 +3,13 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div>Tabel Users
+                    <div>Manage User
                         <div class="page-title-subheading">
                         </div>
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>users/insert" class="mb-2 mr-2 btn btn-primary">Insert User</a>
+                    <a href="<?= base_url() ?>user/insert" class="mb-2 mr-2 btn btn-primary">Insert User</a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($users as $row) {
+                        foreach ($user as $row) {
                             echo "<tr>";
                             echo "<td>" . $row->id_user . "</td>";
                             echo "<td>" . $row->username . "</td>";
@@ -37,9 +37,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="users/delete_users/<?= $row->id_user ?>" class="badge badge-danger ">Delete</a>
-                                <a href="users/update/<?= $row->id_user ?>" class="badge badge-success ">Update</a>
-                                <a href="users/detail/<?= $row->id_user ?>" class="badge badge-primary ">Profile</a>
+                                <a href="user/delete_user/<?= $row->id_user ?>" class="badge badge-danger ">Delete</a>
+                                <a href="user/update/<?= $row->id_user ?>" class="badge badge-success ">Update</a>
+                                <a href="user/detail/<?= $row->id_user ?>" class="badge badge-primary ">Profile</a>
                             </td>
                         <?php
                             echo "</tr>";

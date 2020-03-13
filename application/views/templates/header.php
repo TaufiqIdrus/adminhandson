@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="<?= base_url() ?>css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/main.87c0748b313a1dda75f5.js"> </script>
+  <script type="text/javascript" src="<?= base_url() ?>assets/scripts/index.js"> </script>
+
 </head>
 
 <body>
@@ -66,7 +68,7 @@
                     </a>
                     <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-sm dropdown-menu dropdown-menu-right">
                       <div class="dropdown-menu-header">
-                      
+
                       </div>
                       <div class="scroll-area-xs">
                         <div class="scrollbar-container ps">
@@ -132,9 +134,21 @@
                 </ul>
               </li>
               <li>
-                <a href="<?= base_url() ?>users">
+                <a href="<?= base_url() ?>user">
                   <i class="fas fa-user fa-lg mr-2"></i>Users
                 </a>
+                <ul>
+                  <li>
+                    <a href="<?= base_url() ?>user">
+                      <i class="fas fa-user fa-lg mr-2"></i>User Account
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>user">
+                      <i class="fas fa-user fa-lg mr-2"></i>User Profile
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a href="<?= base_url() ?>dokter">
@@ -152,7 +166,7 @@
                 </a>
               </li>
               <li>
-                <a href="<?= base_url() ?>lainnya">
+                <a href="<?= base_url() ?>Laporan">
                   <i class="fas fa-paperclip fa-lg mr-2"></i>Laporan
                 </a>
                 <ul>

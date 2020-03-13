@@ -29,24 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        foreach ($kursus as $row) {
-                            echo "<tr>";
-                            echo "<td>" . $row->id_kursus . "</td>";
-                            echo "<td>" . $row->kursus . "</td>";
-                            echo "<td>" . $row->deskripsi_singkat . "</td>";
-                            echo "<td>" . $row->harga . "</td>";
-                        ?>
-                            <td>
-                                <a href="kursus/delete_kursus/<?= $row->id_kursus ?>" class="badge badge-danger ">Delete</a>
-                                <a href="kursus/update/<?= $row->id_kursus ?>" class="badge badge-success ">Update</a>
-                                <a href="kursus/detail/<?= $row->id_kursus ?>" class="badge badge-primary ">Detail</a>
 
-                            </td>
-                        <?php
-                            echo "</tr>";
-                        }
-                        ?>
                     </tbody>
                 </table>
             </div>

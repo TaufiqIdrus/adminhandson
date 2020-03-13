@@ -29,11 +29,12 @@ class Login extends CI_Controller
 		$username = $this->security->xss_clean($username);
 		$password = $this->security->xss_clean($password);
 		$where = array(
-			'username' => $username
+			'username' => $username,
+			'level' => 'admin'
 		);
 
 		$userdata = $this->m_login->cek_login("users", $where);
-		if ($username == 'admin' && password_verify($password, $userdata[0]->password)) {
+		if ($userdata[0]->level == 'admin' && password_verify($password, $userdata[0]->password)) {
 			$data = array(
 				'id_user' => $userdata[0]->id_user,
 				'username' => $userdata[0]->username

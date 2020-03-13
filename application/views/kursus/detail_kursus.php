@@ -34,15 +34,16 @@
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Kategori</h5>
-                        <?= $row->id_kategori ?>
+                        <?=$this->m_kategori->display_byID($row->id_kategori)[0]->kategori ?>
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Bahasa</h5>
-                        <?= $row->id_bahasa ?>
+                        <?= $this->m_bahasa->display_byID($row->id_bahasa)[0]->bahasa ?>
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Subtitle</h5>
-                        <?= $row->id_subtitle ?>
+                        <?= $this->m_bahasa->display_byID($row->id_subtitle)[0]->bahasa ?>
+
                     </div>
                     
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">

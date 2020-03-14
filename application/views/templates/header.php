@@ -143,7 +143,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>user">
+                    <a href="<?= base_url() ?>profil">
                       <i class="fas fa-user fa-lg mr-2"></i>User Profile
                     </a>
                   </li>

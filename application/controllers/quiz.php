@@ -31,6 +31,7 @@ class Quiz extends CI_Controller
     function manage($id_kursus)
     {
         $data['judul'] = 'Manage Soal Quiz';
+        $data['id_kursus'] = $id_kursus;
         $data['kursus'] = $this->m_quiz->display_kursus();
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/manage_soal', $data);
@@ -40,21 +41,43 @@ class Quiz extends CI_Controller
     function list($id_kursus)
     {
         $data['judul'] = 'List Soal';
+        $data['id_kursus'] = $id_kursus;
         $data['kursus'] = $this->m_quiz->display_kursus();
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/list_soal', $data);
         $this->load->view('templates/footer');
     }
     
-    function insert()
+    function insert($id_kursus)
     {
         $data['judul'] = 'Insert Soal Quiz';
+        $data['id_kursus'] = $id_kursus;
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/insert_soal');
         $this->load->view('templates/footer');
     }
 
+    function insert_soal()
+    {
+        $jumlah_pilihan = $this->input->post('quiz');
+        $data = array(
+            'id_kursus' => $this->input->post('id_kursus'),
+            'soal_quiz' => $this->input->post('soal_quiz'),
+            
+            
 
+
+            'insert_by' => $this->session->userdata("nama")
+
+        );
+        $data = $this->security->xss_clean($data);
+        $result = $this->m_quiz->insert($data);
+        if ($result == TRUE) {
+            redirect('quiz');
+        } else {
+            redirect('quiz/insert');
+        }
+    }
 
 
 
@@ -100,30 +123,7 @@ class Quiz extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    function insert_quiz()
-    {
-        $data = array(
-            'quiz' => $this->input->post('quiz'),
-            'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
-            'deskripsi_full' => $this->input->post('deskripsi_full'),
-            'harga' => $this->input->post('harga'),
-            'persyaratan' => $this->input->post('persyaratan'),
-            'dokter' => $this->input->post('dokter'),
-            'gambar' => $this->input->post('gambar'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'id_bahasa' => $this->input->post('id_bahasa'),
-            'id_subtitle' => $this->input->post('id_subtitle'),
-            'insert_by' => $this->session->userdata("nama")
 
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert($data);
-        if ($result == TRUE) {
-            redirect('quiz');
-        } else {
-            redirect('quiz/insert');
-        }
-    }
 
     function update_quiz()
     {

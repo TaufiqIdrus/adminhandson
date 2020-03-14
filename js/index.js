@@ -14,8 +14,9 @@ function addJudul() {
 		input.type = 'text';
 		input.className = 'form-control';
 		label.for = 'jawaban_quiz' + i;
-		label.textContent = 'Jawaban Quiz' + i;
+		label.textContent = 'Pilihan Jawaban' + ' ' + (i + 1);
 		input.name = 'jawaban_quiz' + i;
+		judulGroup.appendChild(label); 
 		judulGroup.appendChild(input);
 		// Break
 		judulGroup.appendChild(document.createElement("br"));

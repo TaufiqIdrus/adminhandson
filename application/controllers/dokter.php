@@ -10,7 +10,7 @@ class Dokter extends CI_Controller
         if ($this->session->userdata('status') != "login") {
             redirect(base_url("login"));
         }
-       $this->load->model('m_dokter');
+        $this->load->model('m_dokter');
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->helper('date');
@@ -20,7 +20,7 @@ class Dokter extends CI_Controller
     function index()
     {
         $data['judul'] = 'Manage Dokter';
-        $data['dokter']=$this->m_dokter->display();
+        $data['dokter'] = $this->m_dokter->display();
         $this->load->view('templates/header', $data);
         $this->load->view('dokter/index', $data);
         $this->load->view('templates/footer');
@@ -38,11 +38,20 @@ class Dokter extends CI_Controller
     {
         $data['judul'] = 'Update Dokter';
         $data['id_dokter'] = $id_dokter;
-        $data['dokter']=$this->m_dokter->display_byID($id_dokter);
+        $data['dokter'] = $this->m_dokter->display_byID($id_dokter);
         $this->load->view('templates/header', $data);
-        $this->load->view('dokter/update_dokter',$data);
+        $this->load->view('dokter/update_dokter', $data);
         $this->load->view('templates/footer');
-        
+    }
+
+    function detail($id_dokter)
+    {
+        $data['judul'] = 'Update Kursus';
+        $data['id_dokter'] = $id_dokter;
+        $data['dokter'] = $this->m_dokter->display_byID($id_dokter);
+        $this->load->view('templates/header', $data);
+        $this->load->view('dokter/detail_dokter', $data);
+        $this->load->view('templates/footer');
     }
 
     function insert_dokter()
@@ -55,7 +64,7 @@ class Dokter extends CI_Controller
             'motto' => $this->input->post('motto'),
             'insert_by' => $this->session->userdata("nama")
 
-            
+
         );
         $data = $this->security->xss_clean($data);
         $result = $this->m_dokter->insert($data);

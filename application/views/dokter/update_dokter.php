@@ -32,7 +32,11 @@
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
 
                     <?php }?>
-
+                    <div class="divider"></div>
+                    
+                    <label for="gambar" class="">File Gambar</label>
+                    <input name="gambar" type="file" class="form-control-file">
+                    
                     <div class="divider"></div>
                     <button type="submit" class="btn btn-primary" name="update">Update</button>
                 </form>

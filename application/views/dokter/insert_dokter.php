@@ -31,6 +31,11 @@
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
 
                     <div class="divider"></div>
+                    
+                    <label for="gambar" class="">File Gambar</label>
+                    <input name="gambar" type="file" class="form-control-file">
+                    <div class="divider"></div>
+
                     <button type="submit" class="btn btn-primary" name="insert">Insert</button>
                 </form>
             </div>

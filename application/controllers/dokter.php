@@ -62,6 +62,7 @@ class Dokter extends CI_Controller
             'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
             'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
             'motto' => $this->input->post('motto'),
+            'gambar' => $this->input->post('gambar'),
             'insert_by' => $this->session->userdata("nama")
 
 
@@ -85,6 +86,7 @@ class Dokter extends CI_Controller
             'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
             'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
             'motto' => $this->input->post('motto'),
+            'gambar' => $this->input->post('gambar'),
             'last_update' => mdate($datestring, $time)
         );
         $id_dokter = $this->input->post('id_dokter');

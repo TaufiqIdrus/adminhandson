@@ -39,7 +39,7 @@
                         ?>
                             <td>
                                 <a href="<?=base_url()?>videokursus/update/<?= $row->id_video ?>" class="badge badge-success ">Update</a>
-                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>" class="badge badge-danger ">Delete</a>
+                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>?id_kursus=<?= $row->id_kursus ?>" class="badge badge-danger ">Delete</a>
                             </td>
                         <?php
                             echo "</tr>";

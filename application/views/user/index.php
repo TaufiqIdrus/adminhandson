@@ -21,6 +21,7 @@
                             <th>ID</th>
                             <th>Username</th>
                             <th>Email Address</th>
+                            <th>Level</th>
                             <th>Insert Date</th>
                             <th>Last Update</th>
                             <th>Menu</th>
@@ -33,6 +34,7 @@
                             echo "<td>" . $row->id_user . "</td>";
                             echo "<td>" . $row->username . "</td>";
                             echo "<td>" . $row->emailaddress . "</td>";
+                            echo "<td>" . $row->level . "</td>";
                             echo "<td>" . $row->insert_date . "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                         ?>

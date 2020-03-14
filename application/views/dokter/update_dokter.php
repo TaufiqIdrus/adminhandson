@@ -21,13 +21,13 @@
                     <div class="divider"></div>
 
                     <label for="rwyt_pendidikan" class="">Riwayat Pendidikan</label>
-                    <textarea name="rwyt_pendidikan" type="textarea" class="form-control"><?= $row->rwyt_pendidikan ?>"</textarea>
+                    <textarea name="rwyt_pendidikan" type="textarea" class="form-control"><?= $row->rwyt_pendidikan ?></textarea>
 
                     <label for="rwyt_pekerjaan" class="">Riwayat Pekerjaan</label>
-                    <textarea name="rwyt_pekerjaan" type="textarea" class="form-control"><?= $row->rwyt_pendidikan ?></textarea>
+                    <textarea name="rwyt_pekerjaan" type="textarea" class="form-control"><?= $row->rwyt_pekerjaan ?></textarea>
 
                     <label for="motto" class="">Motto</label>
-                    <textarea name="motto" type="textarea" class="form-control"><?= $row->rwyt_pendidikan ?></textarea>
+                    <textarea name="motto" type="textarea" class="form-control"><?= $row->motto ?></textarea>
                     <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>" />
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
 

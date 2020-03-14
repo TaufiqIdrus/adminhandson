@@ -33,7 +33,6 @@ class Videokursus extends CI_Controller
         $data['judul'] = 'Insert Kursus';
         $data['kategori'] = $this->m_kategori->display();
         $data['bahasa']=$this->m_bahasa->display();
-
         $this->load->view('templates/header', $data);
         $this->load->view('kursus/insert_kursus');
         $this->load->view('templates/footer');

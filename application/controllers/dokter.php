@@ -15,6 +15,7 @@ class Dokter extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('date');
         $this->load->database();
+        //taufiqq
     }
 
     function index()

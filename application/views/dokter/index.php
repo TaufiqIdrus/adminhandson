@@ -39,7 +39,7 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="dokter/delete_dokter/<?= $row->id_dokter ?>" class="badge badge-danger ">Delete</a>
+                                <a href="dokter/delete_dokter/<?= $row->id_dokter ?>" class="badge badge-danger tombol-hapus">Delete</a>
                                 <a href="dokter/update/<?= $row->id_dokter ?>" class="badge badge-success ">Update</a>
                                 <a href="dokter/detail/<?= $row->id_dokter ?>" class="badge badge-primary ">Detail</a>
 

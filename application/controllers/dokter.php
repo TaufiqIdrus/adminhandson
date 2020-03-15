@@ -104,6 +104,7 @@ class Dokter extends CI_Controller
         $id_dokter = $this->security->xss_clean($id_dokter);
         $result = $this->m_dokter->delete($id_dokter);
         if ($result == TRUE) {
+            $this->session->set_flashdata('flash', 'Dihapus');
             redirect('dokter');
         } else {
             redirect('dokter');

@@ -122,6 +122,7 @@ class Kursus extends CI_Controller
         $id_kursus = $this->security->xss_clean($id_kursus);
         $result = $this->m_kursus->delete($id_kursus);
         if ($result == TRUE) {
+            $this->session->set_flashdata('flash', 'Dihapus');
             redirect('kursus');
         } else {
             redirect('kursus');

@@ -16,6 +16,7 @@ class Bahasa extends CI_Controller
         $this->load->helper('date');
         $this->load->database();
         //haihaihai
+        //inicobacoba
     }
 
     function index()

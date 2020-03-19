@@ -15,7 +15,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Judul</th>
                             <th>Jumlah Soal</th>
                             <th>Last Update</th>

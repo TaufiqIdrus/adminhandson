@@ -15,9 +15,9 @@
                     <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>ID Transaksi</th>
-                                <th>ID User</th>
-                                <th>ID Kursus</th>
+                                <th>No Transaksi</th>
+                                <th>No User</th>
+                                <th>No Kursus</th>
                                 <th>Nominal</th>
                                 <th>Waktu Transaksi</th>
                                 <th>Status Transaksi</th>

@@ -15,8 +15,8 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID Log</th>
-                            <th>ID User</th>
+                            <th>No Log</th>
+                            <th>No User</th>
                             <th>username</th>
                             <th>Login Time</th>
                             <th>Logout Time</th>

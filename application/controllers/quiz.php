@@ -47,36 +47,65 @@ class Quiz extends CI_Controller
         $this->load->view('quiz/list_soal', $data);
         $this->load->view('templates/footer');
     }
-    
-    function insert($id_kursus)
+
+    function pilihan($id_kursus)
     {
         $data['judul'] = 'Insert Soal Quiz';
         $data['id_kursus'] = $id_kursus;
         $this->load->view('templates/header', $data);
-        $this->load->view('quiz/insert_soal');
+        $this->load->view('quiz/pilihan');
+        $this->load->view('templates/footer');
+    }
+
+    function insert($id_kursus)
+    {
+        $data['judul'] = 'Insert Soal Quiz';
+        $data['jumlahpilihan'] = $this->input->get('jumlahpilihan');
+        $data['id_soal'] = $this->input->get('id_soal');
+        $data['id_kursus'] = $this->input->post('id_kursus');
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/insert_soal3', $data);
         $this->load->view('templates/footer');
     }
 
     function insert_soal()
     {
-        $jumlah_pilihan = $this->input->post('quiz');
+        $id_kursus = $this->input->post('id_kursus');
+        $id_soal = $this->input->post('id_soal');
+        $jumlahpilihan = $this->input->post('jumlahpilihan');
         $data = array(
-            'id_kursus' => $this->input->post('id_kursus'),
+            'id_kursus' => $id_kursus,
+            'id_soal' => $id_soal,
             'soal_quiz' => $this->input->post('soal_quiz'),
-            
-            
-
-
             'insert_by' => $this->session->userdata("nama")
 
         );
         $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert($data);
+        $result = $this->m_quiz->insert_soal($data);
+
         if ($result == TRUE) {
-            redirect('quiz');
+            redirect('quiz/insert/' . $id_kursus . '?jumlahpilihan=' . $jumlahpilihan . '&id_soal=' . $id_soal);
         } else {
-            redirect('quiz/insert');
+            redirect('quiz/manage' . $id_kursus);
         }
+    }
+
+    function insert_jawaban()
+    {
+        $jumlahpilihan = $this->input->get('jumlahpilihan');
+
+        for ($i = 0; $i < $jumlahpilihan; $i++) {
+            $data[$i] = array(
+                'id_jawaban' => $this->input->post('id_jawaban' . $i),
+                'id_soal' => $this->input->get('id_soal'),
+                'jawaban_quiz' => $this->input->post('jawaban_quiz' . $i),
+                'insert_by' => $this->session->userdata("nama")
+            );
+        }
+        
+        $data = $this->security->xss_clean($data);
+        $this->m_quiz->insert_jawaban($data);
+        redirect('quiz');
     }
 
 
@@ -104,7 +133,7 @@ class Quiz extends CI_Controller
         $data['judul'] = 'Update Quiz';
         $data['id_quiz'] = $id_quiz;
         $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
+        $data['bahasa'] = $this->m_bahasa->display();
         $data['quiz'] = $this->m_quiz->display_byID($id_quiz);
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/update_quiz', $data);
@@ -116,7 +145,7 @@ class Quiz extends CI_Controller
         $data['judul'] = 'Update Quiz';
         $data['id_quiz'] = $id_quiz;
         $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
+        $data['bahasa'] = $this->m_bahasa->display();
         $data['quiz'] = $this->m_quiz->display_byID($id_quiz);
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/detail_quiz', $data);

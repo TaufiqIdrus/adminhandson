@@ -7,6 +7,7 @@ class M_kategori extends CI_Model
     {
         $query = $this->db->get_where('kategori', array('kategori' => $data['kategori']), 1);
         if ($query->num_rows() == 0) {
+            //for ($i = 0;$i < 10;$i++)
             $this->db->insert('kategori', $data);
             if ($this->db->affected_rows() > 0) {
                 return true;
@@ -15,6 +16,17 @@ class M_kategori extends CI_Model
             return false;
         }
     }
+
+    function insertbanyak($data)
+    {
+        $this->db->insert_batch('kategori', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
     function display()
     {

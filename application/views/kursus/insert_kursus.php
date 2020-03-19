@@ -32,6 +32,15 @@
 
                     <label for="dokter" class="">Dokter Pengajar</label>
                     <textarea name="dokter" type="textarea" class="form-control"> </textarea>
+
+                    
+                    <select name="dokter" class="mb-2 form-control">
+                        <?php
+                        foreach ($dokter as $row) { ?>
+                            <option value="<?= $row->id_dokter ?>"><?= $row->dokter ?></option>
+                        <?php } ?>
+                    
+                    </select>
                     <div class="divider"></div>
 
                     <label for="id_kategori" class="">Kategori</label>
@@ -56,7 +65,6 @@
                         <?php } ?>
                     </select>
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
-
 
                     <div class="divider"></div>
                     <label for="gambar" class="">File Gambar</label>

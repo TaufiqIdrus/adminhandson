@@ -3,9 +3,9 @@
 class M_quiz extends CI_Model
 {
 
-    function insert($data)
+    function insert_soal($data)
     {
-        $query = $this->db->get_where('soal_quiz', array('soal_quiz' => $data['soal_quiz']), 1);
+        $query = $this->db->get_where('soal_quiz', array('id_soal' => $data['id_soal']), 1);
         if ($query->num_rows() == 0) {
             $this->db->insert('soal_quiz', $data);
             if ($this->db->affected_rows() > 0) {
@@ -15,6 +15,22 @@ class M_quiz extends CI_Model
             return false;
         }
     }
+
+    function insert_jawaban($data)
+    {
+        $this->db->insert_batch('jawaban_quiz', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+
+
 
     function display()
     {

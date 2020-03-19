@@ -165,6 +165,11 @@
                 </a>
               </li>
               <li>
+                <a href="<?= base_url() ?>kategori">
+                  <i class="fas fa-list fa-lg mr-2"></i>Kategori
+                </a>
+              </li>
+              <li>
                 <a href="<?= base_url() ?>Laporan">
                   <i class="fas fa-paperclip fa-lg mr-2"></i>Laporan
                 </a>
@@ -191,23 +196,7 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="<?= base_url() ?>lainnya">
-                  <i class="fas fa-list fa-lg mr-2"></i>Lainnya
-                </a>
-                <ul>
-                  <li>
-                    <a href="<?= base_url() ?>kategori">
-                      <i class="metismenu-icon"></i>Kategori
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url() ?>bahasa">
-                      <i class="metismenu-icon"></i>Bahasa
-                    </a>
-                  </li>
-                </ul>
-              </li>
+
             </ul>
           </div>
         </div>

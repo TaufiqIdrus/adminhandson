@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>quiz/insert/<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Soal</a>
+                    <a href="<?= base_url() ?>quiz/pilihan/<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Soal</a>
                 </div>
             </div>
         </div>

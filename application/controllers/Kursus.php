@@ -13,6 +13,7 @@ class Kursus extends CI_Controller
         $this->load->model('m_kursus');
         $this->load->model('m_kategori');
         $this->load->model('m_bahasa');
+        $this->load->model('m_dokter');
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->helper('date');
@@ -34,7 +35,7 @@ class Kursus extends CI_Controller
         $data['judul'] = 'Insert Kursus';
         $data['kategori'] = $this->m_kategori->display();
         $data['bahasa']=$this->m_bahasa->display();
-
+        $data['dokter']=$this->m_dokter->display();
         $this->load->view('templates/header', $data);
         $this->load->view('kursus/insert_kursus');
         $this->load->view('templates/footer');

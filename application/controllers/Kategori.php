@@ -20,7 +20,7 @@ class Kategori extends CI_Controller
     function index()
     {
         $data['judul'] = 'Manage Kategori';
-        $data['kategori']=$this->m_kategori->display();
+        $data['kategori'] = $this->m_kategori->display();
         $this->load->view('templates/header', $data);
         $this->load->view('kategori/index', $data);
         $this->load->view('templates/footer');
@@ -38,11 +38,30 @@ class Kategori extends CI_Controller
     {
         $data['judul'] = 'Update Kategori';
         $data['id_kategori'] = $id_kategori;
-        $data['kategori']=$this->m_kategori->display_byID($id_kategori);
+        $data['kategori'] = $this->m_kategori->display_byID($id_kategori);
         $this->load->view('templates/header', $data);
-        $this->load->view('kategori/update_kategori',$data);
+        $this->load->view('kategori/update_kategori', $data);
         $this->load->view('templates/footer');
-        
+    }
+
+    function insert_banyak()
+    {
+        for ($i = 0; $i < 10; $i++) {
+            $data[$i] = array(
+                'kategori' => $this->input->post('kategori'),
+                'deskripsi' => $this->input->post('deskripsi'),
+                'insert_by' => $this->session->userdata("nama")
+
+            );
+        }
+
+        $data = $this->security->xss_clean($data);
+        $result = $this->m_kategori->insertbanyak($data);
+        if ($result == TRUE) {
+            redirect('kategori');
+        } else {
+            redirect('kategori/insert');
+        }
     }
 
     function insert_kategori()
@@ -51,8 +70,9 @@ class Kategori extends CI_Controller
             'kategori' => $this->input->post('kategori'),
             'deskripsi' => $this->input->post('deskripsi'),
             'insert_by' => $this->session->userdata("nama")
-            
+
         );
+
         $data = $this->security->xss_clean($data);
         $result = $this->m_kategori->insert($data);
         if ($result == TRUE) {
@@ -61,7 +81,7 @@ class Kategori extends CI_Controller
             redirect('kategori/insert');
         }
     }
-
+    
     function update_kategori()
     {
         $datestring = '%Y-%m-%d %h:%i:%s';

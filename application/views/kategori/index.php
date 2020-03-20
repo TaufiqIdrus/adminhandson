@@ -29,9 +29,10 @@
                     </thead>
                     <tbody>
                         <?php
+                        $i=1;
                         foreach ($kategori as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_kategori . "</td>";
+                            echo "<td>" . $i . "</td>";
                             echo "<td>" . $row->kategori . "</td>";
                             echo "<td>" . $row->deskripsi . "</td>";
                             echo "<td>" . $row->insert_by . "</td>";
@@ -45,6 +46,7 @@
                             </td>
                         <?php
                             echo "</tr>";
+                            $i++;
                         }
                         ?>
                     </tbody>

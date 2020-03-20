@@ -29,9 +29,10 @@
                     </thead>
                     <tbody>
                         <?php
+                        $i=1;
                         foreach ($user as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_user . "</td>";
+                            echo "<td>" . $i . "</td>";
                             echo "<td>" . $row->username . "</td>";
                             echo "<td>" . $row->emailaddress . "</td>";
                             echo "<td>" . $row->level . "</td>";
@@ -45,6 +46,7 @@
                             </td>
                         <?php
                             echo "</tr>";
+                            $i++;
                         }
                         ?>
                     </tbody>

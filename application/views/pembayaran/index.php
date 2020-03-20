@@ -26,9 +26,10 @@
                         </thead>
                         <!-- <tbody>
                             <?php
+                            $i=1;
                             foreach ($pembayaran as $row) {
                                 echo "<tr>";
-                                echo "<td>" . $row->transaction_id . "</td>";
+                                echo "<td>" . $i . "</td>";
                                 echo "<td>" . $row->id_user . "</td>";
                                 echo "<td>" . $row->id_kursus . "</td>";
                                 echo "<td>" . $row->nominal . "</td>";
@@ -40,6 +41,7 @@
                             </td> -->
                             <?php
                                 echo "</tr>";
+                                $i++;
                             }
                             ?>
                         </tbody> -->

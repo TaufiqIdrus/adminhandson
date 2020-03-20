@@ -29,9 +29,10 @@
                     </thead>
                     <tbody>
                         <?php
+                        $i=1;
                         foreach ($dokter as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_dokter . "</td>";
+                            echo "<td>" . $i . "</td>";
                             echo "<td>" . $row->dokter . "</td>";
                             echo "<td>" . $row->spesialis . "</td>";
                             echo "<td>" . $row->rating . "</td>";
@@ -45,6 +46,7 @@
                             </td>
                         <?php
                             echo "</tr>";
+                            $i++;
                         }
                         ?>
                     </tbody>

@@ -23,9 +23,10 @@
                     </thead>
                     <tbody>
                         <?php
+                        $i=1;
                         foreach ($user as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_user . "</td>";
+                            echo "<td>" . $i . "</td>";
                             echo "<td>" . $row->username . "</td>";
                             if ($this->m_profil->cek_profil($row->id_user) == 0) {
                                 ?><td>Belum Ada</td><?php
@@ -52,6 +53,7 @@
                                  </td>
                         <?php
                             echo "</tr>";
+                            $i++;
                         }
                         ?>
                     </tbody>

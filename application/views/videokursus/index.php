@@ -23,9 +23,10 @@
                     </thead>
                     <tbody>
                         <?php
+                        $i=1;
                         foreach ($kursus as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_kursus . "</td>";
+                            echo "<td>" . $i . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
                             echo "<td>" . $this->m_videokursus->display_jumlah($row->id_kursus) . "</td>";
 
@@ -35,6 +36,7 @@
                             </td>
                         <?php
                             echo "</tr>";
+                            $i++;
                         }
                         ?>
                     </tbody>

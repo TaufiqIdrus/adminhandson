@@ -17,6 +17,9 @@
                     <label for="harga" class="">Harga</label>
                     <input name="harga" type="number" class="form-control">
 
+                    <label for="durasi" class="">Durasi (Hari)</label>
+                    <input name="durasi" type="number" class="form-control">
+
                     
                     <div class="divider"></div>
 

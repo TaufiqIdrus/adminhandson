@@ -57,6 +57,7 @@
             <div class="widget-content p-0">
               <div class="widget-content-wrapper">
                 <div class="widget-content-left">
+                  
                   <div class="btn-group">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                       <div class="d-flex justify-content-center align-items-center">
@@ -139,12 +140,17 @@
                 <ul>
                   <li>
                     <a href="<?= base_url() ?>user">
-                      <i class="fas fa-user fa-lg mr-2"></i>User Account
+                      <i class="fas fa-user fa-lg mr-2"></i>Akun User
                     </a>
                   </li>
                   <li>
                     <a href="<?= base_url() ?>profil">
-                      <i class="fas fa-user fa-lg mr-2"></i>User Profile
+                      <i class="fas fa-user fa-lg mr-2"></i>Profil User
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>kursususer">
+                      <i class="fas fa-user fa-lg mr-2"></i>Kursus User
                     </a>
                   </li>
                 </ul>

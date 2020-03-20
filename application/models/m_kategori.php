@@ -9,6 +9,17 @@ class M_kategori extends CI_Model
         if ($query->num_rows() == 0) {
             //for ($i = 0;$i < 10;$i++)
             $this->db->insert('kategori', $data);
+            $data = array(
+                'id_user' => $this->session->userdata("id_user"),
+                'username' => $this->session->userdata("nama"),
+                'controller' => $this->uri->segment(1),
+                'method' =>  $this->uri->segment(2),
+                'activity' => 'Insert kategori',
+                'ip_address' => $this->input->ip_address(),
+    
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('log_aktivitas', $data);
             if ($this->db->affected_rows() > 0) {
                 return true;
             }
@@ -37,11 +48,35 @@ class M_kategori extends CI_Model
     function update($id, $data)
     {
         $this->db->where('id_kategori', $id);
+
         return $this->db->update('kategori', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'update kategori',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
+        
     }
 
     function delete($id)
     {
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'delete kategori',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
         return $this->db->delete('kategori', array('id_kategori' => $id));
     }
 

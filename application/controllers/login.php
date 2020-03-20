@@ -9,9 +9,9 @@ class Login extends CI_Controller
 
 		$this->load->model('m_login');
 		$this->load->helper('form');
-        $this->load->helper('url');
-        $this->load->helper('date');
-        $this->load->database();
+		$this->load->helper('url');
+		$this->load->helper('date');
+		$this->load->database();
 	}
 
 	function index()
@@ -32,24 +32,19 @@ class Login extends CI_Controller
 			'username' => $username,
 			'level' => 'admin'
 		);
-
+		$id_user = $this->m_login->display_by_username($username);
 		$userdata = $this->m_login->cek_login("users", $where);
 		if ($userdata[0]->level == 'admin' && password_verify($password, $userdata[0]->password)) {
-			$data = array(
-				'id_user' => $userdata[0]->id_user,
-				'username' => $userdata[0]->username
-			);
-			$data = $this->security->xss_clean($data);
-			$this->m_login->catat_login($data);
 			$log = $this->m_login->get_id();
 			$id_log = $log[0]->id_log;
 			$data_session = array(
+				'id_user' => $id_user,
 				'nama' => $username,
-				'id_log' => $id_log,
 				'status' => "login"
 			);
-			$this->session->set_userdata($data_session);
 
+			$this->session->set_userdata($data_session);
+			$this->m_login->catat_login();
 
 			redirect(base_url("dashboard"));
 		} else {
@@ -59,14 +54,7 @@ class Login extends CI_Controller
 
 	function logout()
 	{
-		$datestring = '%Y-%m-%d %h:%i:%s';
-		$time = now('Asia/Jakarta');
-		$id_log = $this->session->userdata("id_log");
-		$data = array(
-			'logout_time' =>mdate($datestring, $time)
-		);
-		$this->m_login->catat_logout($id_log,$data);
-		
+		$this->m_login->catat_logout();
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
 	}

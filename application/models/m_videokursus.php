@@ -8,6 +8,17 @@ class M_videokursus extends CI_Model
         $query = $this->db->get_where('videokursus', array('url_video' => $data['url_video']), 1);
         if ($query->num_rows() == 0) {
             $this->db->insert('videokursus', $data);
+            $data = array(
+                'id_user' => $this->session->userdata("id_user"),
+                'username' => $this->session->userdata("nama"),
+                'controller' => $this->uri->segment(1),
+                'method' =>  $this->uri->segment(2),
+                'activity' => 'Insert video',
+                'ip_address' => $this->input->ip_address(),
+    
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('log_aktivitas', $data);
             if ($this->db->affected_rows() > 0) {
                 return true;
             }
@@ -26,11 +37,33 @@ class M_videokursus extends CI_Model
     {
         $this->db->where('id_video', $id);
         return $this->db->update('videokursus', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Update video',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function delete($id)
     {
         return $this->db->delete('videokursus', array('id_video' => $id));
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Delete video',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function display_byID($id)

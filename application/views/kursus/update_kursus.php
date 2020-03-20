@@ -19,6 +19,11 @@
                         <input name="harga" type="number" class="form-control" value="<?= $row->harga ?>">
                         <div class="divider"></div>
 
+                        <label for="durasi" class="">Durasi (Hari)</label>
+                        <input name="durasi" type="number" class="form-control">
+                        
+                        <div class="divider"></div>
+
                         <label for="deskripsi_singkat" class="">Deskripsi Singkat</label>
                         <textarea name="deskripsi_singkat" type="textarea" class="form-control"><?= $row->deskripsi_singkat ?></textarea>
 

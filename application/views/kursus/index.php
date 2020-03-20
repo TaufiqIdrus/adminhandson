@@ -33,7 +33,7 @@
                             echo "<td>" . $row->id_kursus . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
                             echo "<td>" . $row->deskripsi_singkat . "</td>";
-                            echo "<td>" . $row->harga . "</td>";
+                            echo "<td>Rp." .number_format($row->harga, 0, ",", "."). "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>

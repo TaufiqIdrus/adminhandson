@@ -8,6 +8,17 @@ class M_dokter extends CI_Model
         $query = $this->db->get_where('dokter', array('dokter' => $data['dokter']), 1);
         if ($query->num_rows() == 0) {
             $this->db->insert('dokter', $data);
+            $data = array(
+                'id_user' => $this->session->userdata("id_user"),
+                'username' => $this->session->userdata("nama"),
+                'controller' => $this->uri->segment(1),
+                'method' =>  $this->uri->segment(2),
+                'activity' => 'Insert dokter',
+                'ip_address' => $this->input->ip_address(),
+    
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('log_aktivitas', $data);
             if ($this->db->affected_rows() > 0) {
                 return true;
             }
@@ -26,11 +37,34 @@ class M_dokter extends CI_Model
     {
         $this->db->where('id_dokter', $id);
         return $this->db->update('dokter', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Update dokter',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function delete($id)
     {
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Delete dokter',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
         return $this->db->delete('dokter', array('id_dokter' => $id));
+        
     }
 
     function display_byID($id)

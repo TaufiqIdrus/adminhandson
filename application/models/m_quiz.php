@@ -22,11 +22,21 @@ class M_quiz extends CI_Model
         if ($this->db->affected_rows() > 0) {
             return true;
         }else{
-            return false;
+            $this->db->showerror();
         }
     }
 
+    function pilihan($id)
+    {
+        $query = $this->db->get_where('jawaban_quiz', array('id_soal' => $id));
+        return $query->result();
+    }
 
+    function insert_benar($id, $data)
+    {
+        $this->db->where('id_soal', $id);
+        return $this->db->update('soal_quiz', $data);
+    }
 
 
 

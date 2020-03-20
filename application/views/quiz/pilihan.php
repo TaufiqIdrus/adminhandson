@@ -24,8 +24,6 @@
           <label for="">Jumlah Pilihan Jawaban</label>
           <div class="form-inline mb-2">
             <input name="jumlahpilihan" type="number" class="form-control mr-3">
-            <!-- <input type="button" id="inputJudul" class="btn btn-success mr-3" value="Tambah"> -->
-           
           </div>
           <label for="">Tekan untuk memasukkan pilihan jawaban soal ini</label><br>
           <button type="submit" class="btn btn-success " name="insert">Tambah Soal</button>

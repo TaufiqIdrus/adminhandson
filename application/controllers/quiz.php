@@ -59,12 +59,22 @@ class Quiz extends CI_Controller
 
     function insert($id_kursus)
     {
-        $data['judul'] = 'Insert Soal Quiz';
+        $data['judul'] = 'Insert Jawaban Quiz';
         $data['jumlahpilihan'] = $this->input->get('jumlahpilihan');
         $data['id_soal'] = $this->input->get('id_soal');
         $data['id_kursus'] = $this->input->post('id_kursus');
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/insert_soal3', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function pilihanbenar($id_soal)
+    {
+        $data['judul'] = 'Insert Jawaban Benar';
+        $data['id_soal'] = $id_soal;
+        $data['pilihan'] = $this->m_quiz->pilihan($id_soal);
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/jawabanbenar', $data);
         $this->load->view('templates/footer');
     }
 
@@ -92,20 +102,39 @@ class Quiz extends CI_Controller
 
     function insert_jawaban()
     {
-        $jumlahpilihan = $this->input->get('jumlahpilihan');
-
-        for ($i = 0; $i < $jumlahpilihan; $i++) {
+        for ($i = 0; $i < $this->input->post('jumlahpilihan'); $i++) {
             $data[$i] = array(
                 'id_jawaban' => $this->input->post('id_jawaban' . $i),
-                'id_soal' => $this->input->get('id_soal'),
+                'id_soal' => $this->input->post('id_soal'),
                 'jawaban_quiz' => $this->input->post('jawaban_quiz' . $i),
                 'insert_by' => $this->session->userdata("nama")
             );
         }
-        
+
         $data = $this->security->xss_clean($data);
-        $this->m_quiz->insert_jawaban($data);
-        redirect('quiz');
+        $result = $this->m_quiz->insert_jawaban($data);
+        if ($result == TRUE) {
+            redirect('quiz/pilihanbenar/'.$this->input->post('id_soal'));
+        } else {
+            redirect('quiz');
+        }
+    }
+
+    function insert_benar()
+    {
+        $id_soal = $this->input->post('id_soal');
+            $data = array(
+                'id_jawaban' => $this->input->post('id_jawaban')
+            );
+        
+
+        $data = $this->security->xss_clean($data);
+        $result = $this->m_quiz->insert_benar($this->input->post('id_soal'),$data);
+        if ($result == TRUE) {
+            redirect('quiz');
+        } else {
+            redirect('quiz');
+        }
     }
 
 

@@ -12,7 +12,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
+                <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered table-responsive-md">
                     <thead>
                         <tr>
                             <th>No</th>

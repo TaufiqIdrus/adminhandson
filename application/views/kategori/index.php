@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>kategori/insert" class="mb-2 mr-2 btn btn-primary">Insert Kategori</a>
+                    <a href="kategori/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama Kategori</th>
                             <th>Deskripsi</th>
                             <th>Insert By</th>
@@ -39,8 +39,8 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="kategori/delete_kategori/<?= $row->id_kategori ?>" class="badge badge-danger ">Delete</a>
-                                <a href="kategori/update/<?= $row->id_kategori ?>" class="badge badge-success ">Update</a>
+                                <a href="kategori/delete_kategori/<?=$row->id_kategori?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
+                                <a href="kategori/update/<?=$row->id_kategori?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
 
                             </td>
                         <?php

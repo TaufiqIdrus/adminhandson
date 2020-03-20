@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>kursus/insert" class="mb-2 mr-2 btn btn-primary">Insert Kursus</a>
+                    <a href="kursus/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Judul</th>
                             <th>Deskripsi Singkat</th>
                             <th>Harga</th>
@@ -37,10 +37,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="kursus/delete_kursus/<?= $row->id_kursus ?>" class="badge badge-danger tombol-hapus">Delete</a>
-                                <a href="kursus/update/<?= $row->id_kursus ?>" class="badge badge-success ">Update</a>
-                                <a href="kursus/detail/<?= $row->id_kursus ?>" class="badge badge-primary ">Detail</a>
-
+                            <a href="kursus/delete_kursus/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
+                            <a href="kursus/update/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
+                            <a href="kursus/detail/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/detail.png" width="30" height="30"></a>
                             </td>
                         <?php
                             echo "</tr>";

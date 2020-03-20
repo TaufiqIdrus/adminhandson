@@ -15,7 +15,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Username</th>
                             <th>Keterangan Profil</th>
                             <th>Menu</th>
@@ -39,11 +39,11 @@
                                 <?php
 
                                 if ($this->m_profil->cek_profil($row->id_user) == 0) {
-                                    ?><a href="profil/insert/<?= $row->id_user ?>" class="badge badge-primary ">Add Profile</a><?php
+                                    ?><a href="profile/insert/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/add_user.png" width="32" height="32"></a><?php
                                 }else{
                                     ?> 
-                                    <a href="profil/update/<?= $row->id_user ?>" class="badge badge-success ">Update</a>
-                                    <a href="profil/delete/<?= $row->id_user ?>" class="badge badge-danger ">Delete</a>
+                                    <a href="profile/update/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="30" height="30"></a>
+                                    <a href="profile/delete/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="30" height="30"></a>
                                     <?php
                                 }
 

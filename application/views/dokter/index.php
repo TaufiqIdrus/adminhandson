@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>dokter/insert" class="mb-2 mr-2 btn btn-primary">Insert Dokter</a>
+                <a href="dokter/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>  
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Nama dokter</th>
                             <th>Spesialis</th>
                             <th>Rating</th>
@@ -39,10 +39,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="dokter/delete_dokter/<?= $row->id_dokter ?>" class="badge badge-danger tombol-hapus">Delete</a>
-                                <a href="dokter/update/<?= $row->id_dokter ?>" class="badge badge-success ">Update</a>
-                                <a href="dokter/detail/<?= $row->id_dokter ?>" class="badge badge-primary ">Detail</a>
-
+                                <a href="dokter/delete_dokter/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="35" height="35"></a>
+                                <a href="dokter/update/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="35" height="35"></a>
+                                <a href="dokter/detail/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/profile.png" width="35" height="35"></a>
                             </td>
                         <?php
                             echo "</tr>";

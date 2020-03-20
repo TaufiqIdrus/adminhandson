@@ -15,7 +15,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>No</th>
                             <th>Judul</th>
                             <th>Jumlah Soal</th>
                             <th>Last Update</th>
@@ -33,8 +33,8 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                            <a href="quiz/manage/<?= $row->id_kursus ?>" class="badge badge-primary ">Manage Soal Quiz</a>
-                            <a href="quiz/list/<?= $row->id_kursus ?>" class="badge badge-success ">List Soal Quiz</a>
+                            <a href="quiz/manage/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/manage_quiz.png" width="40" height="40"></a>
+                            <a href="quiz/list/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/list.png" width="33" height="33"></a>
                             </td>
                         <?php
                             echo "</tr>";

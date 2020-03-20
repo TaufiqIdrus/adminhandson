@@ -9,7 +9,8 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>videokursus/insert/<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Video</a>
+               
+                <a href="<?= base_url() ?>videokursus/insert/<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Video</a>
                 </div>
             </div>
         </div>
@@ -38,8 +39,9 @@
                             echo "<td>" . $row->durasi . "</td>";
                         ?>
                             <td>
-                                <a href="<?=base_url()?>videokursus/update/<?= $row->id_video ?>" class="badge badge-success ">Update</a>
-                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>?id_kursus=<?= $row->id_kursus ?>" class="badge badge-danger ">Delete</a>
+                            <a href="videokursus/delete_video/<?=$row->id_video?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
+                            <a href="videokursus/update/<?=$row->id_video?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
+                
                             </td>
                         <?php
                             echo "</tr>";

@@ -31,7 +31,7 @@
 
                         ?>
                             <td>
-                                <a href="videokursus/manage/<?= $row->id_kursus ?>" class="badge badge-primary ">Manage Video</a>
+                            <a href="videokursus/manage/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/manage_video.png" width="30" height="30"></a>
                             </td>
                         <?php
                             echo "</tr>";

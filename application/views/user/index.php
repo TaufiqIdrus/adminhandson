@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>user/insert" class="mb-2 mr-2 btn btn-primary">Insert User</a>
+                    <a href="user/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
                 </div>
             </div>
         </div>
@@ -39,9 +39,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="user/delete_user/<?= $row->id_user ?>" class="badge badge-danger ">Delete</a>
-                                <a href="user/update/<?= $row->id_user ?>" class="badge badge-success ">Update</a>
-                                <a href="user/detail/<?= $row->id_user ?>" class="badge badge-primary ">Profile</a>
+                                <a href="user/delete_user/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="30" height="30"></a>
+                                <a href="user/update/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="30" height="30"></a>
+                                <a href="user/detail/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/profile.png" width="30" height="30"></a>
                             </td>
                         <?php
                             echo "</tr>";

@@ -2,8 +2,8 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>profil" class="btn btn-primary">Kembali</a>
-                <p class="h1">Insert profile user</p>
+                <a href="<?= base_url() ?>profil" class="btn btn-secondary">kembali</a>
+                <p class="h1">Insert profil user</p>
                 <form action="<?= base_url() ?>profil/insert_profil" method="POST">
                     <?php
                     $csrf = array(

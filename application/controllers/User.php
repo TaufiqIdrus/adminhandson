@@ -13,6 +13,7 @@ class User extends CI_Controller
         $this->load->model('m_user');
         $this->load->model('m_kategori');
         $this->load->model('m_bahasa');
+        $this->load->model('m_profil');
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->helper('date');
@@ -52,11 +53,12 @@ class User extends CI_Controller
 
     function detail($id_user)
     {
-        $data['judul'] = 'Update User';
+        $data['judul'] = 'Detail User';
         $data['id_user'] = $id_user;
         $data['kategori'] = $this->m_kategori->display();
         $data['bahasa'] = $this->m_bahasa->display();
         $data['user'] = $this->m_user->display_byID($id_user);
+        $data['profil'] = $this->m_profil->display_byID($id_user);
         $this->load->view('templates/header', $data);
         $this->load->view('user/detail_user', $data);
         $this->load->view('templates/footer');

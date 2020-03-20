@@ -109,17 +109,7 @@ class Profil extends CI_Controller
             redirect('profil/update' . $id_user);
         }
     }
-    // function detail($id_user)
-    // {
-    //     $data['judul'] = 'Update User';
-    //     $data['id_user'] = $id_user;
-    //     $data['kategori'] = $this->m_kategori->display();
-    //     $data['bahasa'] = $this->m_bahasa->display();
-    //     $data['user'] = $this->m_user->display_byID($id_user);
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('user/detail_user', $data);
-    //     $this->load->view('templates/footer');
-    // }
+
 
 
 

@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="<?= base_url() ?>css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.css">
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/main.87c0748b313a1dda75f5.js"> </script>
 
 </head>
@@ -176,7 +177,7 @@
                 </a>
               </li>
               <li>
-                <a href="<?= base_url() ?>Laporan">
+                <a href="<?= base_url() ?>laporan">
                   <i class="fas fa-paperclip fa-lg mr-2"></i>Laporan
                 </a>
                 <ul>
@@ -186,17 +187,17 @@
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>bahasa">
+                    <a href="<?= base_url() ?>">
                       <i class="metismenu-icon"></i>Kursus
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>bahasa">
+                    <a href="<?= base_url() ?>">
                       <i class="metismenu-icon"></i>Keuangan
                     </a>
                   </li>
                   <li>
-                    <a href="<?= base_url() ?>bahasa">
+                    <a href="<?= base_url() ?>">
                       <i class="metismenu-icon"></i>Quiz
                     </a>
                   </li>

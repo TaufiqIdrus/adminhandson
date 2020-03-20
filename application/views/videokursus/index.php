@@ -22,16 +22,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i = 1;
                         foreach ($kursus as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_kursus . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
                             echo "<td>" . $this->m_videokursus->display_jumlah($row->id_kursus) . "</td>";
 
                         ?>
                             <td>
-                            <a href="videokursus/manage/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/manage_video.png" width="30" height="30"></a>
+                                <a href="videokursus/manage/<?= $row->id_kursus ?>" class="badge badge-primary">Manage</a>
                             </td>
                         <?php
                             echo "</tr>";

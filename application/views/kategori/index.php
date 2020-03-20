@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="kategori/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
+                    <a href="kategori/insert" class="btn btn-primary">Insert</a>
                 </div>
             </div>
         </div>
@@ -28,10 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i= 1;
                         foreach ($kategori as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_kategori . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kategori . "</td>";
                             echo "<td>" . $row->deskripsi . "</td>";
                             echo "<td>" . $row->insert_by . "</td>";
@@ -39,8 +39,8 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="kategori/delete_kategori/<?=$row->id_kategori?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
-                                <a href="kategori/update/<?=$row->id_kategori?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
+                                <a href="kategori/delete_kategori/<?=$row->id_kategori?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="kategori/update/<?=$row->id_kategori?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
 
                             </td>
                         <?php

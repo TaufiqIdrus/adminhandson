@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                <a href="dokter/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>  
+                <a href="dokter/insert" class="btn btn-primary">Insert</a>  
                 </div>
             </div>
         </div>
@@ -28,10 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i = 1;
                         foreach ($dokter as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_dokter . "</td>";
+                            echo "<td>" . $i++. "</td>";
                             echo "<td>" . $row->dokter . "</td>";
                             echo "<td>" . $row->spesialis . "</td>";
                             echo "<td>" . $row->rating . "</td>";
@@ -39,9 +39,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="dokter/delete_dokter/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="35" height="35"></a>
-                                <a href="dokter/update/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="35" height="35"></a>
-                                <a href="dokter/detail/<?=$row->id_dokter?>"><img src="<?php echo base_url();?>assets/img/icons/profile.png" width="35" height="35"></a>
+                                <a href="dokter/delete_dokter/<?=$row->id_dokter?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="dokter/update/<?=$row->id_dokter?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+                                <a href="dokter/detail/<?=$row->id_dokter?>"><i class="fas fa-info-circle fa-xs text-white p-2 bg-primary rounded"></i></a>
                             </td>
                         <?php
                             echo "</tr>";

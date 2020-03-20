@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="kursus/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
+                    <a href="kursus/insert" class="btn btn-primary">Insert</a>
                 </div>
             </div>
         </div>
@@ -27,19 +27,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i = 1;
                         foreach ($kursus as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_kursus . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
                             echo "<td>" . $row->deskripsi_singkat . "</td>";
                             echo "<td>Rp." .number_format($row->harga, 0, ",", "."). "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                            <a href="kursus/delete_kursus/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
-                            <a href="kursus/update/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
-                            <a href="kursus/detail/<?=$row->id_kursus?>"><img src="<?php echo base_url();?>assets/img/icons/detail.png" width="30" height="30"></a>
+                                <a href="kursus/delete_kursus/<?=$row->id_kursus?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="kursus/update/<?=$row->id_kursus?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+                                <a href="kursus/detail/<?=$row->id_kursus?>"><i class="fas fa-info-circle fa-xs text-white p-2 bg-primary rounded"></i></a>
                             </td>
                         <?php
                             echo "</tr>";

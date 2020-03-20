@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="user/insert"><img src="<?php echo base_url();?>assets/img/icons/insert.png" width="50" height="50"></a>
+                    <a href="user/insert" class="btn btn-primary">Insert</a>  
                 </div>
             </div>
         </div>
@@ -28,10 +28,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i = 1;
                         foreach ($user as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_user . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->username . "</td>";
                             echo "<td>" . $row->emailaddress . "</td>";
                             echo "<td>" . $row->level . "</td>";
@@ -39,9 +39,9 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="user/delete_user/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="30" height="30"></a>
-                                <a href="user/update/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="30" height="30"></a>
-                                <a href="user/detail/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/profile.png" width="30" height="30"></a>
+                                <a href="user/delete_user/<?=$row->id_user?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="user/update/<?=$row->id_user?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+                                <a href="user/detail/<?=$row->id_user?>"><i class="fas fa-info-circle fa-xs text-white p-2 bg-primary rounded"></i></a>
                             </td>
                         <?php
                             echo "</tr>";

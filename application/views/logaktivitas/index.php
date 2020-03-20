@@ -15,22 +15,24 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>No Log</th>
-                            <th>No User</th>
-                            <th>username</th>
-                            <th>Login Time</th>
-                            <th>Logout Time</th>
+                            <th>No</th>
+                            <th>ID User</th>
+                            <th>Controller</th>
+                            <th>Method</th>
+                            <th>Activity</th>
+                            <th>Time</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i= 1;
                         foreach ($logaktivitas as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_log . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->id_user . "</td>";
-                            echo "<td>" . $row->username . "</td>";
-                            echo "<td>" . $row->login_time . "</td>";
-                            echo "<td>" . $row->logout_time . "</td>";
+                            echo "<td>" . $row->controller . "</td>";
+                            echo "<td>" . $row->method . "</td>";
+                            echo "<td>" . $row->activity . "</td>";
+                            echo "<td>" . $row->time . "</td>";
                             echo "</tr>";
                         }
                         ?>

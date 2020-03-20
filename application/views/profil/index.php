@@ -22,10 +22,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                    <?php $i = 1;
                         foreach ($user as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_user . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->username . "</td>";
                             if ($this->m_profil->cek_profil($row->id_user) == 0) {
                                 ?><td>Belum Ada</td><?php
@@ -39,11 +39,11 @@
                                 <?php
 
                                 if ($this->m_profil->cek_profil($row->id_user) == 0) {
-                                    ?><a href="profile/insert/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/add_user.png" width="32" height="32"></a><?php
+                                    ?><a href="profil/insert/<?=$row->id_user?>" class="badge badge-primary">Add profile</a><?php
                                 }else{
                                     ?> 
-                                    <a href="profile/update/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/edit.png" width="30" height="30"></a>
-                                    <a href="profile/delete/<?=$row->id_user?>"><img src="<?php echo base_url();?>assets/img/icons/delete_user.png" width="30" height="30"></a>
+                                    <a href="profil/update/<?=$row->id_user?>" class="badge badge-success">Edit profil</a>
+                                    <a href="profil/delete/<?=$row->id_user?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
                                     <?php
                                 }
 

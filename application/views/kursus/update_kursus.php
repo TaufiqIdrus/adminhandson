@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>Kursus" class="btn btn-primary">Kembali</a>
+                <a href="<?= base_url() ?>kursus" class="btn btn-secondary">kembali</a>
                 <p class="h1">Update data Kursus</p>
                 <form action="<?= base_url() ?>kursus/update_kursus" method="POST">
                     <?php

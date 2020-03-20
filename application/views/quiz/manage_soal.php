@@ -21,7 +21,7 @@
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>No/th>
+                            <th>No</th>
                             <th>Text soal</th>
                             <th>Pilihan jawaban</th>
                             <th>Jawaban benar</th>

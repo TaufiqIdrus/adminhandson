@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>User" class="btn btn-primary">Kembali</a>
+            <a href="<?= base_url() ?>User" class="btn btn-secondary">Kembali</a>
                 <p class="h1">Insert data user</p>
                 <form action="<?= base_url() ?>user/insert_user" method="POST">
                     <?php

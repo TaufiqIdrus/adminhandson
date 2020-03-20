@@ -2,7 +2,7 @@
   <div class="app-main__inner">
     <div class="main-card mb-3 card">
       <div class="card-body">
-        <a href="<?= base_url() ?>quiz" class="btn btn-secondary">Kembali</a>
+      <a href="<?= base_url() ?>quiz" class="btn btn-secondary">Kembali</a>
         <p class="h1">Insert Soal dan Jawaban Quiz</p>
         <form action="<?= base_url() ?>quiz/insert_soal" method="POST">
           <?php

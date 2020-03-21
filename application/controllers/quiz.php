@@ -32,7 +32,7 @@ class Quiz extends CI_Controller
     {
         $data['judul'] = 'Manage Soal Quiz';
         $data['id_kursus'] = $id_kursus;
-        $data['kursus'] = $this->m_quiz->display_kursus();
+        $data['soal'] = $this->m_quiz->display_soal($id_kursus);
         $this->load->view('templates/header', $data);
         $this->load->view('quiz/manage_soal', $data);
         $this->load->view('templates/footer');
@@ -67,6 +67,8 @@ class Quiz extends CI_Controller
         $this->load->view('quiz/insert_soal3', $data);
         $this->load->view('templates/footer');
     }
+
+
 
     function pilihanbenar($id_soal)
     {
@@ -114,7 +116,7 @@ class Quiz extends CI_Controller
         $data = $this->security->xss_clean($data);
         $result = $this->m_quiz->insert_jawaban($data);
         if ($result == TRUE) {
-            redirect('quiz/pilihanbenar/'.$this->input->post('id_soal'));
+            redirect('quiz/pilihanbenar/' . $this->input->post('id_soal'));
         } else {
             redirect('quiz');
         }
@@ -123,13 +125,13 @@ class Quiz extends CI_Controller
     function insert_benar()
     {
         $id_soal = $this->input->post('id_soal');
-            $data = array(
-                'id_jawaban' => $this->input->post('id_jawaban')
-            );
-        
+        $data = array(
+            'id_jawaban' => $this->input->post('id_jawaban')
+        );
+
 
         $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert_benar($this->input->post('id_soal'),$data);
+        $result = $this->m_quiz->insert_benar($this->input->post('id_soal'), $data);
         if ($result == TRUE) {
             redirect('quiz');
         } else {
@@ -137,81 +139,94 @@ class Quiz extends CI_Controller
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    function update($id_quiz)
-    {
-        $data['judul'] = 'Update Quiz';
-        $data['id_quiz'] = $id_quiz;
-        $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa'] = $this->m_bahasa->display();
-        $data['quiz'] = $this->m_quiz->display_byID($id_quiz);
-        $this->load->view('templates/header', $data);
-        $this->load->view('quiz/update_quiz', $data);
-        $this->load->view('templates/footer');
-    }
-
-    function detail($id_quiz)
-    {
-        $data['judul'] = 'Update Quiz';
-        $data['id_quiz'] = $id_quiz;
-        $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa'] = $this->m_bahasa->display();
-        $data['quiz'] = $this->m_quiz->display_byID($id_quiz);
-        $this->load->view('templates/header', $data);
-        $this->load->view('quiz/detail_quiz', $data);
-        $this->load->view('templates/footer');
-    }
-
-
-
-    function update_quiz()
+    function update_soal()
     {
         $datestring = '%Y-%m-%d %h:%i:%s';
         $time = now('Asia/Jakarta');
+        $id_soal = $this->input->post('id_soal');
+
         $data = array(
-            'quiz' => $this->input->post('quiz'),
-            'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
-            'deskripsi_full' => $this->input->post('deskripsi_full'),
-            'harga' => $this->input->post('harga'),
-            'persyaratan' => $this->input->post('persyaratan'),
-            'dokter' => $this->input->post('dokter'),
-            'gambar' => $this->input->post('gambar'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'id_bahasa' => $this->input->post('id_bahasa'),
-            'id_subtitle' => $this->input->post('id_subtitle'),
+            'soal_quiz' => $this->input->post('soal_quiz'),
             'insert_by' => $this->session->userdata("nama"),
             'last_update' => mdate($datestring, $time)
         );
-        $id_quiz = $this->input->post('id_quiz');
         $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->update($id_quiz, $data);
+        $result = $this->m_quiz->update_soal($id_soal, $data);
+
         if ($result == TRUE) {
             redirect('quiz');
         } else {
-            redirect('quiz/update');
+            redirect('quiz');
         }
     }
 
-    function delete_quiz($id_quiz)
+
+    function gantijawaban($id_soal)
+    {
+        $data['judul'] = 'Ganti Jawaban soal';
+        $data['id_soal'] = $id_soal;
+        $data['pilihan'] = $this->m_quiz->pilihan($id_soal);
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/gantijawaban', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function updatesoal($id_soal)
+    {
+        $data['judul'] = 'Update Soal Quiz';
+        $data['id_soal'] = $id_soal;
+        $data['soal'] = $this->m_quiz->display_teks($id_soal);
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/update_soal', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function updatepilihan($id_soal)
+    {
+        $data['judul'] = 'Update Pilihan Jawaban Soal Quiz';
+        $data['id_soal'] = $id_soal;
+        $data['pilihan'] = $this->m_quiz->display_pilihan($id_soal);
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/update_pilihan', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function update_jawaban()
+    {
+        $datestring = '%Y-%m-%d %h:%i:%s';
+        $time = now('Asia/Jakarta');
+        for ($i = 0; $i < $this->input->post('jumlahpilihan'); $i++) {
+            
+            $data[$i] = array(
+
+                'jawaban_quiz' => $this->input->post('jawaban_quiz' . $i),
+                'last_update' => mdate($datestring, $time),
+                'insert_by' => $this->session->userdata("nama")
+            );
+            $data[$i] = $this->security->xss_clean($data[$i]);
+            $result = $this->m_quiz->update_jawaban($this->input->post('id_jawaban' . $i),$data[$i]);
+        }
+
+
+        if ($result == TRUE) {
+            redirect('quiz');
+        } else {
+            redirect('quiz');
+        }
+    }
+
+    function delete_soal($id_soal)
+    {
+        $id_soal = $this->security->xss_clean($id_soal);
+        $result = $this->m_quiz->delete_soal($id_soal);
+        if ($result == TRUE) {
+            redirect('quiz');
+        } else {
+            redirect('quiz');
+        }
+    }
+
+    function delete_jawaban($id_quiz)
     {
         $id_quiz = $this->security->xss_clean($id_quiz);
         $result = $this->m_quiz->delete($id_quiz);

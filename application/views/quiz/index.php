@@ -19,7 +19,6 @@
                             <th>Judul</th>
                             <th>Jumlah Soal</th>
                             <th>Last Update</th>
-                            
                             <th>Menu</th>
                         </tr>
                     </thead>
@@ -29,7 +28,7 @@
                             echo "<tr>";
                             echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
-                            echo "<td>" . $row->kursus . "</td>";
+                            echo "<td>" . $this->m_quiz->display_total($row->id_kursus) . "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>

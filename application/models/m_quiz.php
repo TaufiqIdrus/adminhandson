@@ -21,7 +21,7 @@ class M_quiz extends CI_Model
         $this->db->insert_batch('jawaban_quiz', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
-        }else{
+        } else {
             $this->db->showerror();
         }
     }
@@ -38,8 +38,52 @@ class M_quiz extends CI_Model
         return $this->db->update('soal_quiz', $data);
     }
 
+    function display_soal($id_kursus)
+    {
+        $query = $this->db->get_where('soal_quiz', array('id_kursus' => $id_kursus));
+        return $query->result();
+    }
 
+    function display_pilihan($id_soal)
+    {
+        $query = $this->db->get_where('jawaban_quiz', array('id_soal' => $id_soal));
+        return $query->result();
+    }
 
+    function display_jawaban($id_jawaban)
+    {
+        $query = $this->db->get_where('jawaban_quiz', array('id_jawaban' => $id_jawaban));
+        return $query->result()[0]->jawaban_quiz;
+    }
+
+    function display_total($id_kursus)
+    {
+        $query = $this->db->get_where('soal_quiz', array('id_kursus' => $id_kursus));
+        return $query->num_rows();
+    }
+
+    function display_jumlah($id_soal)
+    {
+        $query = $this->db->get_where('jawaban_quiz', array('id_soal' => $id_soal));
+        return $query->num_rows();
+    }
+
+    function display_teks($id_soal)
+    {
+        $query = $this->db->get_where('soal_quiz', array('id_soal' => $id_soal));
+        return $query->result()[0]->soal_quiz;
+    }
+
+    function update_jawaban($id, $data)
+    {
+        $this->db->where('id_jawaban', $id);
+        return $this->db->update('jawaban_quiz', $data);
+    }
+
+    function delete_soal($id)
+    {
+        return $this->db->delete('soal_quiz', array('id_soal' => $id));
+    }
 
 
     function display()
@@ -54,9 +98,9 @@ class M_quiz extends CI_Model
         return $query->result();
     }
 
-    function update($id, $data)
+    function update_soal($id, $data)
     {
-        $this->db->where('id_soal_quiz', $id);
+        $this->db->where('id_soal', $id);
         return $this->db->update('soal_quiz', $data);
     }
 

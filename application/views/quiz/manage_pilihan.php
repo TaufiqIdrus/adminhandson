@@ -41,7 +41,7 @@
                                     ?></td>
                                 <td><?= $this->m_quiz->display_jawaban($row->id_jawaban) ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>quiz/delete_soal/<?= $row->id_soal ?>" class="badge badge-danger mb-2">Hapus soal</a><br>
+                                    <a href="<?= base_url() ?>quiz/delete/<?= $row->id_soal ?>" class="badge badge-danger mb-2">Hapus soal</a><br>
                                     <a href="<?= base_url() ?>quiz/updatesoal/<?= $row->id_soal ?>" class="badge badge-warning mb-2">update soal</a><br>
                                     <a href="<?= base_url() ?>quiz/gantijawaban/<?= $row->id_soal ?>" class="badge badge-success mb-2">Update jawaban benar</a><br>
                                     <a href="<?= base_url() ?>quiz/managepilihan/<?= $row->id_soal ?>" class="badge badge-primary mb-2">Manage pilihan jawaban</a><br>

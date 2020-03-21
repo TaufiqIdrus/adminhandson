@@ -3,8 +3,8 @@
     <div class="main-card mb-3 card">
       <div class="card-body">
         <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
-        <p class="h1">Update Soal Quiz</p>
-        <form action="<?= base_url() ?>quiz/update_soal" method="POST">
+        <p class="h1">Insert Soal Quiz</p>
+        <form action="<?= base_url() ?>quiz/insert_soal" method="POST">
           <?php
           $csrf = array(
             'name' => $this->security->get_csrf_token_name(),
@@ -12,12 +12,12 @@
           );
           ?>
           <label for="soal_quiz" class="">Teks Soal</label>
-          <textarea name="soal_quiz" type="textarea" class="form-control mb-2"><?= $soal ?> </textarea>
+          <textarea name="soal_quiz" type="textarea" class="form-control"> </textarea>
           <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
-          <input type="hidden" name="id_soal" value="<?= $id_soal ?>" />
+          <input type="hidden" name="id_soal" value="<?= uniqid() ?>" />
           <input type="hidden" name="id_kursus" value="<?= $id_kursus ?>" />
           <div class="divider"></div>
-          <button type="submit" class="btn btn-primary" name="update">Update</button>
+          <button type="submit" class="btn btn-primary" name="insert">Insert</button>
         </form>
       </div>
     </div>

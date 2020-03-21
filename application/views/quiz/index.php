@@ -32,8 +32,7 @@
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                            <a href="quiz/manage/<?=$row->id_kursus?>" class="badge badge-primary">Manage</a>
-                            <a href="quiz/list/<?=$row->id_kursus?>" class="badge badge-success">List</a>
+                            <a href="quiz/managesoal/<?=$row->id_kursus?>" class="badge badge-primary">Manage Quiz</a>
                             </td>
                         <?php
                             echo "</tr>";

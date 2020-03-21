@@ -9,7 +9,7 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>quiz/pilihan/<?= $id_kursus ?>" class="mb-2 mr-2 btn btn-primary">Insert Soal</a>
+                    <a href="<?= base_url() ?>quiz/insertsoal/<?= $id_kursus ?>" class="mb-2 mr-2 btn btn-primary">Insert Soal</a>
                 </div>
             </div>
         </div>
@@ -33,24 +33,33 @@
                             <tr>
                                 <td><?= $i++ ?></td>
                                 <td><?= $row->soal_quiz ?></td>
-                                <td><?php
-                                    $pilihan = $this->m_quiz->display_pilihan($row->id_soal);
-                                    foreach ($pilihan as $pilih) { ?>
-                                        <?= $pilih->jawaban_quiz ?><br>
-                                    <?php }
-                                    ?></td>
-                                <td><?= $this->m_quiz->display_jawaban($row->id_jawaban) ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>quiz/delete_soal/<?= $row->id_soal ?>" class="badge badge-danger mb-2">Hapus soal</a><br>
-                                    <a href="<?= base_url() ?>quiz/updatesoal/<?= $row->id_soal ?>" class="badge badge-warning mb-2">update soal</a><br>
-                                    <a href="<?= base_url() ?>quiz/gantijawaban/<?= $row->id_soal ?>" class="badge badge-success mb-2">Update jawaban benar</a><br>
-                                    <a href="<?= base_url() ?>quiz/managepilihan/<?= $row->id_soal ?>" class="badge badge-primary mb-2">Manage pilihan jawaban</a><br>
-                                    <!-- <a href="<?= base_url() ?>quiz/updatepilihan/<?= $row->id_soal ?>" class="badge badge-warning mb-2">update pilihan jawaban</a><br> -->
+                                    <?php
+                                    $pilihan = $this->m_quiz->display_pilihan($row->id_soal);
+                                    if ($pilihan == null) {
+                                        echo 'Belum ada pilihan jawaban';
+                                    } else {
+                                        foreach ($pilihan as $pilih) {
+                                            echo $pilih->jawaban_quiz . '<br>';
+                                        }
+                                    } ?>
                                 </td>
+                                <td>
+                                    <?php
+                                    if ($row->id_jawaban == null) {
+                                        echo 'Jawaban benar belum dipilih';
+                                    } else {
+                                        echo $this->m_quiz->display_jawaban($row->id_jawaban);
+                                    } ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url() ?>quiz/delete_soal/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-danger mb-2">Hapus soal</a><br>
+                                    <a href="<?= base_url() ?>quiz/updatesoal/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-warning mb-2">update soal</a><br>
+                                    <a href="<?= base_url() ?>quiz/gantijawaban/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-success mb-2">Ganti jawaban benar</a><br>
+                                    <a href="<?= base_url() ?>quiz/managepilihan/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-primary mb-2">Manage pilihan jawaban</a><br>
+                                    </td>
                             </tr>
-
-                        <?php }
-                        ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

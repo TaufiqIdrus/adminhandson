@@ -128,7 +128,7 @@ class Quiz extends CI_Controller
         );
 
         $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert_benar($this->input->post('id_soal'), $data);
+        $result = $this->m_quiz->ganti_jawaban($this->input->post('id_soal'), $data);
         if ($result == TRUE) {
             redirect('quiz/managesoal/' . $id_kursus);
         } else {
@@ -169,7 +169,7 @@ class Quiz extends CI_Controller
         );
 
         $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert_satujawaban($data);
+        $result = $this->m_quiz->insert_jawaban($data);
         if ($result == TRUE) {
             redirect('quiz/managepilihan/' . $id_soal . '?id_kursus=' . $id_kursus);
         } else {

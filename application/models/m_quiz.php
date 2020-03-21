@@ -2,12 +2,34 @@
 
 class M_quiz extends CI_Model
 {
+    function display_kursus()
+    {
+        $query = $this->db->query("select * from kursus");
+        return $query->result();
+    }
+
+    function display_soal($id_kursus)
+    {
+        $query = $this->db->get_where('soal_quiz', array('id_kursus' => $id_kursus));
+        return $query->result();
+    }
 
     function insert_soal($data)
     {
         $query = $this->db->get_where('soal_quiz', array('id_soal' => $data['id_soal']), 1);
         if ($query->num_rows() == 0) {
             $this->db->insert('soal_quiz', $data);
+            $data = array(
+                'id_user' => $this->session->userdata("id_user"),
+                'username' => $this->session->userdata("nama"),
+                'controller' => $this->uri->segment(1),
+                'method' =>  $this->uri->segment(2),
+                'activity' => 'Insert soal',
+                'ip_address' => $this->input->ip_address(),
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('log_aktivitas', $data);
             if ($this->db->affected_rows() > 0) {
                 return true;
             }
@@ -18,17 +40,18 @@ class M_quiz extends CI_Model
 
     function insert_jawaban($data)
     {
-        $this->db->insert_batch('jawaban_quiz', $data);
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        } else {
-            $this->db->showerror();
-        }
-    }
-
-    function insert_satujawaban($data)
-    {
         $this->db->insert('jawaban_quiz', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Insert jawaban',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
         if ($this->db->affected_rows() > 0) {
             return true;
         } else {
@@ -42,16 +65,21 @@ class M_quiz extends CI_Model
         return $query->result();
     }
 
-    function insert_benar($id, $data)
+    function ganti_jawaban($id, $data)
     {
         $this->db->where('id_soal', $id);
         return $this->db->update('soal_quiz', $data);
-    }
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Ganti jawaban',
+            'ip_address' => $this->input->ip_address(),
 
-    function display_soal($id_kursus)
-    {
-        $query = $this->db->get_where('soal_quiz', array('id_kursus' => $id_kursus));
-        return $query->result();
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function display_pilihan($id_soal)
@@ -63,9 +91,9 @@ class M_quiz extends CI_Model
     function display_jawaban($id_jawaban)
     {
         $query = $this->db->get_where('jawaban_quiz', array('id_jawaban' => $id_jawaban));
-        if ($query->result() == null){
+        if ($query->result() == null) {
             echo 'Jawaban benar belum dipilih';
-        }else{
+        } else {
             return $query->result()[0]->jawaban_quiz;
         }
     }
@@ -98,11 +126,33 @@ class M_quiz extends CI_Model
     {
         $this->db->where('id_jawaban', $id);
         return $this->db->update('jawaban_quiz', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'update jawaban',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function delete_soal($id)
     {
         return $this->db->delete('soal_quiz', array('id_soal' => $id));
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'delete soal',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
 
@@ -112,21 +162,39 @@ class M_quiz extends CI_Model
         return $query->result();
     }
 
-    function display_kursus()
-    {
-        $query = $this->db->query("select * from kursus");
-        return $query->result();
-    }
+
 
     function update_soal($id, $data)
     {
         $this->db->where('id_soal', $id);
         return $this->db->update('soal_quiz', $data);
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'update soal',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function delete_jawaban($id)
     {
         return $this->db->delete('jawaban_quiz', array('id_jawaban' => $id));
+        $data = array(
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'delete jawaban',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
     }
 
     function display_byID($id)

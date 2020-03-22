@@ -3,7 +3,7 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div>Tabel Kursus
+                    <div>Manage Kursus
                         <div class="page-title-subheading">
                         </div>
                     </div>

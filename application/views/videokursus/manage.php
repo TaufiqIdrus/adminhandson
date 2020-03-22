@@ -9,8 +9,8 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-               
-                <a href="<?= base_url() ?>videokursus/insert/<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Video</a>
+
+                    <a href="<?= base_url() ?>videokursus/insert/<?= $id_kursus ?>" class="mb-2 mr-2 btn btn-primary">Insert Video</a>
                 </div>
             </div>
         </div>
@@ -24,29 +24,30 @@
                         <tr>
                             <th>No</th>
                             <th>Judul Video</th>
-                            <th>URL Video</th>
+                            <th>Bab Video</th>
                             <th>Durasi</th>
                             <th>Menu</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         foreach ($video as $row) {
                             echo "<tr>";
                             echo "<td>" . $row->id_video . "</td>";
                             echo "<td>" . $row->judul_video . "</td>";
-                            echo "<td>" . $row->url_video . "</td>";
+                            echo "<td>" . $this->m_videokursus->display_bab_kursus($row->id_bab) . "</td>";
                             echo "<td>" . $row->durasi . "</td>";
                         ?>
                             <td>
-                            <a href="videokursus/delete_video/<?=$row->id_video?>"><img src="<?php echo base_url();?>assets/img/icons/delete.png" width="30" height="30"></a>
-                            <a href="videokursus/update/<?=$row->id_video?>"><img src="<?php echo base_url();?>assets/img/icons/update.png" width="30" height="30"></a>
-                
+                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="<?=base_url()?>videokursus/update/<?= $row->id_video ?>?id_kursus=<?= $id_kursus ?>"> <i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+
                             </td>
                         <?php
                             echo "</tr>";
                         }
                         ?>
+
                     </tbody>
                 </table>
             </div>

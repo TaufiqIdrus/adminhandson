@@ -14,12 +14,20 @@
                     <label for="judul_video" class="">Judul Video</label>
                     <input name="judul_video" type="text" class="form-control">
 
-                    <label for="url_video" class="">URL Video</label>
-                    <input name="url_video" type="text" class="form-control">
+                    <label for="id_bab" class="">Bab Video</label>
+                    <select name="id_bab" class="mb-2 form-control">
+                        <?php
+                        foreach ($bab_kursus as $row) { ?>
+                            <option value="<?= $row->id_bab ?>"><?= $row->bab_kursus ?></option>
+                        <?php } ?>
+                    
+                    </select>
 
                     <label for="durasi" class="">Durasi</label>
                     <input name="durasi" type="text" class="form-control">
-                    
+                    <div class="divider"></div>
+                    <label for="url_video" class="">File video</label>
+                    <input name="url_video" type="file" class="form-control-file">
                     <div class="divider"></div>
 
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />

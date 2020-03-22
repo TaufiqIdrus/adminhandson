@@ -21,7 +21,7 @@
 
                         <label for="durasi" class="">Durasi (Hari)</label>
                         <input name="durasi" type="number" class="form-control">
-                        
+
                         <div class="divider"></div>
 
                         <label for="deskripsi_singkat" class="">Deskripsi Singkat</label>
@@ -33,8 +33,6 @@
                         <label for="persyaratan" class="">Persyaratan</label>
                         <textarea name="persyaratan" type="textarea" class="form-control"><?= $row->persyaratan ?></textarea>
 
-                        <label for="dokter" class="">Dokter Pengajar</label>
-                        <textarea name="dokter" type="textarea" class="form-control"><?= $row->dokter ?></textarea>
                         <div class="divider"></div>
 
                         <label for="id_kategori" class="">Kategori</label>

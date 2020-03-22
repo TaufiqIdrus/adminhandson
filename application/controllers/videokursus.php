@@ -43,6 +43,7 @@ class Videokursus extends CI_Controller
     {
         $data['judul'] = 'Insert Video Kursus';
         $data['id_kursus'] = $id_kursus;
+        $data['bab_kursus'] = $this->m_videokursus->display_bab($id_kursus);
         $this->load->view('templates/header', $data);
         $this->load->view('videokursus/insert_video');
         $this->load->view('templates/footer');
@@ -50,11 +51,12 @@ class Videokursus extends CI_Controller
 
     function update($id_video)
     {
-        $data['judul'] = 'Insert Video Kursus';
+        $data['judul'] = 'Update Video Kursus';
+        // $id_kursus = $this->input->get('id_kursus');
         $data['id_video'] = $id_video;
-
+        $data['id_kursus'] = $this->input->get('id_kursus');
+        // $data['bab_kursus'] = $this->m_videokursus->display_bab($id_kursus);
         $data['video'] = $this->m_videokursus->display_byID($id_video);
-        
         $this->load->view('templates/header', $data);
         $this->load->view('videokursus/update_video');
         $this->load->view('templates/footer');
@@ -66,6 +68,7 @@ class Videokursus extends CI_Controller
 
         $data = array(
             'id_kursus' => $this->input->post('id_kursus'),
+            'id_bab' => $this->input->post('id_bab'),
             'judul_video' => $this->input->post('judul_video'),
             'url_video' => $this->input->post('url_video'),
             'durasi' => $this->input->post('durasi'),
@@ -76,9 +79,9 @@ class Videokursus extends CI_Controller
         $data = $this->security->xss_clean($data);
         $result = $this->m_videokursus->insert($data);
         if ($result == TRUE) {
-            redirect('videokursus/manage/'.$id_kursus);
+            redirect('videokursus/manage/' . $id_kursus);
         } else {
-            redirect('videokursus/insert/'.$id_kursus);
+            redirect('videokursus/insert/' . $id_kursus);
         }
     }
 
@@ -90,6 +93,7 @@ class Videokursus extends CI_Controller
         $data = array(
             'id_kursus' => $this->input->post('id_kursus'),
             'judul_video' => $this->input->post('judul_video'),
+            'id_bab' => $this->input->post('id_bab'),
             'url_video' => $this->input->post('url_video'),
             'durasi' => $this->input->post('durasi'),
             'insert_by' => $this->session->userdata("nama"),
@@ -99,9 +103,9 @@ class Videokursus extends CI_Controller
         $data = $this->security->xss_clean($data);
         $result = $this->m_videokursus->update($id_video, $data);
         if ($result == TRUE) {
-            redirect('videokursus/manage/'.$id_kursus);
+            redirect('videokursus/manage/' . $id_kursus);
         } else {
-            redirect('videokursus/update/'.$id_kursus);
+            redirect('videokursus/update/' . $id_kursus);
         }
     }
 
@@ -111,9 +115,9 @@ class Videokursus extends CI_Controller
         $id_video = $this->security->xss_clean($id_video);
         $result = $this->m_videokursus->delete($id_video);
         if ($result == TRUE) {
-            redirect('videokursus/manage/'.$id_kursus);
+            redirect('videokursus/manage/' . $id_kursus);
         } else {
-            redirect('videokursus/update/'.$id_kursus);
+            redirect('videokursus/update/' . $id_kursus);
         }
     }
 }

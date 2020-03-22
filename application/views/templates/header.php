@@ -123,8 +123,18 @@
                     </a>
                   </li>
                   <li>
+                    <a href="<?= base_url() ?>dokterkursus">
+                      <i class="metismenu-icon"></i>Dokter Pengajar Kursus
+                    </a>
+                  </li>
+                  <li>
                     <a href="<?= base_url() ?>videokursus">
                       <i class="metismenu-icon"></i>Video Kursus
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>babkursus">
+                      <i class="metismenu-icon"></i>Bab Video Kursus
                     </a>
                   </li>
                   <li>

@@ -39,6 +39,12 @@ class M_babkursus extends CI_Model
         return $query->result()[0]->bab_kursus;
     }
 
+    function displayjumlahbab($id_kursus)
+    {
+        $query = $this->db->get_where('bab_kursus', array('id_kursus' => $id_kursus));
+        return $query->num_rows();
+    }
+
     function update_bab($id, $data)
     {
         $this->db->where('id_bab', $id);

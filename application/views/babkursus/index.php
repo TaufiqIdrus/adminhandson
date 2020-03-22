@@ -17,6 +17,7 @@
                         <tr>
                             <th>No</th>
                             <th>Judul Kursus</th>
+                            <th>Jumlah Bab Kursus</th>
                             <th>Menu</th>
                         </tr>
                     </thead>
@@ -26,9 +27,10 @@
                             echo "<tr>";
                             echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
+                            echo "<td>" . $this->m_babkursus->displayjumlahbab($row->id_kursus) . "</td>";
                         ?>
                             <td>
-                                <a href="babkursus/managebab/<?=$row->id_kursus?>" class="badge badge-primary">Manage</a>
+                                <a href="babkursus/managebab/<?= $row->id_kursus ?>" class="badge badge-primary">Manage</a>
                             </td>
                         <?php
                             echo "</tr>";

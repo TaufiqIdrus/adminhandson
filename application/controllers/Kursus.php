@@ -11,6 +11,7 @@ class Kursus extends CI_Controller
             redirect(base_url("login"));
         }
         $this->load->model('m_kursus');
+        $this->load->model('m_dokterkursus');
         $this->load->model('m_kategori');
         $this->load->model('m_bahasa');
         $this->load->model('m_dokter');
@@ -18,7 +19,6 @@ class Kursus extends CI_Controller
         $this->load->helper('url');
         $this->load->helper('date');
         $this->load->database();
-        //coba
     }
 
     function index()
@@ -34,8 +34,8 @@ class Kursus extends CI_Controller
     {
         $data['judul'] = 'Insert Kursus';
         $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
-        $data['dokter']=$this->m_dokter->display();
+        $data['bahasa'] = $this->m_bahasa->display();
+        $data['dokter'] = $this->m_dokter->display();
         $this->load->view('templates/header', $data);
         $this->load->view('kursus/insert_kursus');
         $this->load->view('templates/footer');
@@ -46,7 +46,7 @@ class Kursus extends CI_Controller
         $data['judul'] = 'Update Kursus';
         $data['id_kursus'] = $id_kursus;
         $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
+        $data['bahasa'] = $this->m_bahasa->display();
         $data['kursus'] = $this->m_kursus->display_byID($id_kursus);
         $this->load->view('templates/header', $data);
         $this->load->view('kursus/update_kursus', $data);
@@ -55,11 +55,12 @@ class Kursus extends CI_Controller
 
     function detail($id_kursus)
     {
-        $data['judul'] = 'Update Kursus';
+        $data['judul'] = 'Detail Kursus';
         $data['id_kursus'] = $id_kursus;
         $data['kategori'] = $this->m_kategori->display();
-        $data['bahasa']=$this->m_bahasa->display();
+        $data['bahasa'] = $this->m_bahasa->display();
         $data['kursus'] = $this->m_kursus->display_byID($id_kursus);
+        $data['dokterkursus'] = $this->m_dokterkursus->displayiddokter($id_kursus);
         $this->load->view('templates/header', $data);
         $this->load->view('kursus/detail_kursus', $data);
         $this->load->view('templates/footer');
@@ -67,22 +68,7 @@ class Kursus extends CI_Controller
 
     function insert_kursus()
     {
-        $data = array(
-            'kursus' => $this->input->post('kursus'),
-            'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
-            'deskripsi_full' => $this->input->post('deskripsi_full'),
-            'harga' => $this->input->post('harga'),
-            'durasi' => $this->input->post('durasi'),
-            'persyaratan' => $this->input->post('persyaratan'),
-            'gambar' => $this->input->post('gambar'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'id_bahasa' => $this->input->post('id_bahasa'),
-            'id_subtitle' => $this->input->post('id_subtitle'),
-            'insert_by' => $this->session->userdata("nama")
-
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_kursus->insert($data);
+        $result = $this->m_kursus->insert_kursus();
         if ($result == TRUE) {
             redirect('kursus');
         } else {
@@ -92,25 +78,7 @@ class Kursus extends CI_Controller
 
     function update_kursus()
     {
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $data = array(
-            'kursus' => $this->input->post('kursus'),
-            'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
-            'deskripsi_full' => $this->input->post('deskripsi_full'),
-            'harga' => $this->input->post('harga'),
-            'durasi' => $this->input->post('durasi'),
-            'persyaratan' => $this->input->post('persyaratan'),
-            'gambar' => $this->input->post('gambar'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'id_bahasa' => $this->input->post('id_bahasa'),
-            'id_subtitle' => $this->input->post('id_subtitle'),
-            'insert_by' => $this->session->userdata("nama"),
-            'last_update' => mdate($datestring, $time)
-        );
-        $id_kursus = $this->input->post('id_kursus');
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_kursus->update($id_kursus, $data);
+        $result = $this->m_kursus->update_kursus();
         if ($result == TRUE) {
             redirect('kursus');
         } else {

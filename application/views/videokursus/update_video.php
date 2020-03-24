@@ -30,8 +30,8 @@
                     <input name="durasi" type="text" class="form-control" value="<?= $row->durasi ?>">
                     
                     <div class="divider"></div>
-                    <label for="url_video" class="">File video</label>
-                    <input name="url_video" type="file" class="form-control-file">
+                    <label for="video" class="">File video</label>
+                    <input name="video" type="file" class="form-control-file">
                     <div class="divider"></div>
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                     <input type="hidden" name="id_kursus" value="<?= $row->id_kursus ?>" />

@@ -30,16 +30,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php $i= 1;
                         foreach ($video as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row->id_video . "</td>";
+                            echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->judul_video . "</td>";
                             echo "<td>" . $this->m_videokursus->display_bab_kursus($row->id_bab) . "</td>";
                             echo "<td>" . $row->durasi . "</td>";
                         ?>
                             <td>
-                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="<?=base_url()?>videokursus/delete_video/<?= $row->id_video ?>?id_kursus=<?= $id_kursus ?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
                                 <a href="<?=base_url()?>videokursus/update/<?= $row->id_video ?>?id_kursus=<?= $id_kursus ?>"> <i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
 
                             </td>

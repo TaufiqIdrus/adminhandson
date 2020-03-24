@@ -9,6 +9,11 @@
                 foreach ($kursus as $row) {
                 ?>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                        <h5 class="card-title">Gambar</h5>
+                        <img src="<?= base_url() ?>upload/kursus/<?= $row->gambar ?>" alt="" width="200" height="200">
+
+                    </div>
+                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Judul Kursus</h5>
                         <?= $row->kursus ?>
                     </div>
@@ -34,7 +39,10 @@
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Dokter Pengajar</h5>
-                        <?= $row->dokter ?>
+                        <?php foreach ($dokterkursus as $dokter) {
+                            echo $this->m_dokterkursus->displaynamadokter($dokter->id_dokter) . "<br>";
+                        }
+                        ?>
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Kategori</h5>
@@ -50,12 +58,8 @@
 
                     </div>
 
-                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
-                        <h5 class="card-title">Gambar</h5>
-                        <img src="<?= $row->gambar ?>" alt="">
-                    <?php } ?>
+                <?php } ?>
 
-                    </div>
             </div>
         </div>
     </div>

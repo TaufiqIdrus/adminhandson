@@ -10,7 +10,8 @@
                 ?>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Gambar</h5>
-                        <img src="<?= $row->gambar ?>" alt="">
+                        
+                        <img src="<?= base_url() ?>upload/dokter/<?= $row->gambar ?>" alt="" width="200" height="200">
 
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">

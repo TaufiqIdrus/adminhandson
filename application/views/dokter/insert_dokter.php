@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>dokter" class="btn btn-secondary">kembali</a>
                 <p class="h1">Insert data Dokter</p>
-                <form action="<?= base_url() ?>dokter/insert_dokter" method="POST">
+                <form action="<?= base_url() ?>dokter/insert_dokter" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),
@@ -29,7 +29,7 @@
                     <textarea name="motto" type="textarea" class="form-control"> </textarea>
 
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
-
+                    <input type="hidden" name="id_dokter" value="<?= uniqid() ?>" />
                     <div class="divider"></div>
                     
                     <label for="gambar" class="">File Gambar</label>

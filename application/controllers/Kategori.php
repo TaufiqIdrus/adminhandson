@@ -44,29 +44,10 @@ class Kategori extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    function insert_banyak()
-    {
-        for ($i = 0; $i < 10; $i++) {
-            $data[$i] = array(
-                'kategori' => $this->input->post('kategori'),
-                'deskripsi' => $this->input->post('deskripsi'),
-                'insert_by' => $this->session->userdata("nama")
-
-            );
-        }
-
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_kategori->insertbanyak($data);
-        if ($result == TRUE) {
-            redirect('kategori');
-        } else {
-            redirect('kategori/insert');
-        }
-    }
-
     function insert_kategori()
     {
         $data = array(
+            'id_kategori' => uniqid(),
             'kategori' => $this->input->post('kategori'),
             'deskripsi' => $this->input->post('deskripsi'),
             'insert_by' => $this->session->userdata("nama")

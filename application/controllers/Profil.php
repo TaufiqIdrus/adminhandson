@@ -51,20 +51,8 @@ class Profil extends CI_Controller
     function insert_profil()
     {
         $id_user = $this->input->post('id_user');
-        $data = array(
-            'firstname' => $this->input->post('firstname'),
-            'lastname' => $this->input->post('lastname'),
-            'birthdate' => $this->input->post('birthdate'),
-            'nomor_telepon' => $this->input->post('nomor_telepon'),
-            'alamat' => $this->input->post('alamat'),
-            'pendidikan' => $this->input->post('pendidikan'),
-            'profilepic' => $this->input->post('profilepic'),
-            'id_user' => $this->input->post('id_user'),
-            'insert_by' => $this->session->userdata("nama")
 
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_profil->insert($data);
+        $result = $this->m_profil->insert_profil();
         if ($result == TRUE) {
             redirect('profil');
         } else {
@@ -86,23 +74,7 @@ class Profil extends CI_Controller
     function update_profil()
     {
         $id_user = $this->input->post('id_user');
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $data = array(
-            'firstname' => $this->input->post('firstname'),
-            'lastname' => $this->input->post('lastname'),
-            'birthdate' => $this->input->post('birthdate'),
-            'nomor_telepon' => $this->input->post('nomor_telepon'),
-            'alamat' => $this->input->post('alamat'),
-            'pendidikan' => $this->input->post('pendidikan'),
-            'profilepic' => $this->input->post('profilepic'),
-            'id_user' => $this->input->post('id_user'),
-            'last_update' => mdate($datestring, $time),
-            'insert_by' => $this->session->userdata("nama")
-        );
-        $id_profil = $this->input->post('id_profil');
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_profil->update($id_user, $data);
+        $result = $this->m_profil->update_profil();
         if ($result == TRUE) {
             redirect('profil');
         } else {

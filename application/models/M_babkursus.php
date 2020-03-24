@@ -3,25 +3,31 @@
 class M_babkursus extends CI_Model
 {
 
-    function insert_bab($data)
+    function insert_bab()
     {
-        $query = $this->db->get_where('bab_kursus', array('id_bab' => $data['id_bab']), 1);
-        if ($query->num_rows() == 0) {
-            $this->db->insert('bab_kursus', $data);
-            $data = array(
-                'id_user' => $this->session->userdata("id_user"),
-                'username' => $this->session->userdata("nama"),
-                'controller' => $this->uri->segment(1),
-                'method' =>  $this->uri->segment(2),
-                'activity' => 'Insert bab kursus',
-                'ip_address' => $this->input->ip_address(),
+        $data = array(
+            'id_bab' => $this->input->post('id_bab'),
+            'id_kursus' => $this->input->post('id_kursus'),
+            'bab_kursus' => $this->input->post('bab_kursus'),
+            'insert_by' => $this->session->userdata("nama")
+        );
 
-            );
-            $data = $this->security->xss_clean($data);
-            $this->db->insert('log_aktivitas', $data);
-            if ($this->db->affected_rows() > 0) {
-                return true;
-            }
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('bab_kursus', $data);
+        $data = array(
+            'id_log' => uniqid(),
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'Insert bab kursus',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
         } else {
             return false;
         }
@@ -29,7 +35,7 @@ class M_babkursus extends CI_Model
 
     function display($id)
     {
-        $query = $this->db->get_where('bab_kursus', array('id_kursus' => $id));
+        $query = $this->db->get_where('bab_kursus', array('id_kursus' => $id, 'status'=>'active'));
         return $query->result();
     }
 
@@ -45,11 +51,21 @@ class M_babkursus extends CI_Model
         return $query->num_rows();
     }
 
-    function update_bab($id, $data)
+    function update_bab()
     {
-        $this->db->where('id_bab', $id);
+        $datestring = '%Y-%m-%d %h:%i:%s';
+        $time = now('Asia/Jakarta');
+        $data = array(
+            'bab_kursus' => $this->input->post('bab_kursus'),
+            'insert_by' => $this->session->userdata("nama"),
+            'last_update' => mdate($datestring, $time)
+        );
+        $id_bab = $this->input->post('id_bab');
+        $data = $this->security->xss_clean($data);
+        $this->db->where('id_bab', $id_bab);
         return $this->db->update('bab_kursus', $data);
         $data = array(
+            'id_log' => uniqid(),
             'id_user' => $this->session->userdata("id_user"),
             'username' => $this->session->userdata("nama"),
             'controller' => $this->uri->segment(1),
@@ -62,10 +78,18 @@ class M_babkursus extends CI_Model
         $this->db->insert('log_aktivitas', $data);
     }
 
-    function delete_bab($id)
+    function delete_bab($id_bab)
     {
-        return $this->db->delete('bab_kursus', array('id_bab' => $id));
+        $this->db->where('id_bab', $id_bab);
         $data = array(
+            'status' => 'deleted'
+        );
+        return $this->db->update('bab_kursus', $data);
+
+        //return $this->db->delete('bab_kursus', array('id_bab' => $id));
+
+        $data = array(
+            'id_log' => uniqid(),
             'id_user' => $this->session->userdata("id_user"),
             'username' => $this->session->userdata("nama"),
             'controller' => $this->uri->segment(1),

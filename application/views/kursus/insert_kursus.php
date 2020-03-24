@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>kursus" class="btn btn-secondary">kembali</a>
                 <p class="h1">Insert data Kursus</p>
-                <form action="<?= base_url() ?>kursus/insert_kursus" method="POST">
+                <form action="<?= base_url() ?>kursus/insert_kursus" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),

@@ -65,19 +65,7 @@ class Videokursus extends CI_Controller
     function insert_video()
     {
         $id_kursus = $this->input->post('id_kursus');
-
-        $data = array(
-            'id_kursus' => $this->input->post('id_kursus'),
-            'id_bab' => $this->input->post('id_bab'),
-            'judul_video' => $this->input->post('judul_video'),
-            'url_video' => $this->input->post('url_video'),
-            'durasi' => $this->input->post('durasi'),
-            'id_kursus' => $this->input->post('id_kursus'),
-            'insert_by' => $this->session->userdata("nama")
-
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_videokursus->insert($data);
+        $result = $this->m_videokursus->insert_video();
         if ($result == TRUE) {
             redirect('videokursus/manage/' . $id_kursus);
         } else {
@@ -88,20 +76,7 @@ class Videokursus extends CI_Controller
     function update_video()
     {
         $id_kursus = $this->input->post('id_kursus');
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $data = array(
-            'id_kursus' => $this->input->post('id_kursus'),
-            'judul_video' => $this->input->post('judul_video'),
-            'id_bab' => $this->input->post('id_bab'),
-            'url_video' => $this->input->post('url_video'),
-            'durasi' => $this->input->post('durasi'),
-            'insert_by' => $this->session->userdata("nama"),
-            'last_update' => mdate($datestring, $time)
-        );
-        $id_video = $this->input->post('id_video');
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_videokursus->update($id_video, $data);
+        $result = $this->m_videokursus->update_video();
         if ($result == TRUE) {
             redirect('videokursus/manage/' . $id_kursus);
         } else {

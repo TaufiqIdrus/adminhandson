@@ -52,17 +52,8 @@ class Babkursus extends CI_Controller
 
     function insert_bab()
     {
-
         $id_kursus = $this->input->post('id_kursus');
-        $data = array(
-            'id_bab' => $this->input->post('id_bab'),
-            'id_kursus' => $this->input->post('id_kursus'),
-            'bab_kursus' => $this->input->post('bab_kursus'),
-            'insert_by' => $this->session->userdata("nama")
-        );
-
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_babkursus->insert_bab($data);
+        $result = $this->m_babkursus->insert_bab();
         if ($result == TRUE) {
             redirect('babkursus/managebab/'  . $id_kursus);
         } else {
@@ -84,16 +75,7 @@ class Babkursus extends CI_Controller
     function update_bab()
     {
         $id_kursus = $this->input->post('id_kursus');
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $data = array(
-            'bab_kursus' => $this->input->post('bab_kursus'),
-            'insert_by' => $this->session->userdata("nama"),
-            'last_update' => mdate($datestring, $time)
-        );
-        $id_bab = $this->input->post('id_bab');
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_babkursus->update_bab($id_bab, $data);
+        $result = $this->m_babkursus->update_bab();
         if ($result == TRUE) {
             redirect('babkursus/managebab/'  . $id_kursus);
         } else {
@@ -109,6 +91,6 @@ class Babkursus extends CI_Controller
         if ($result == TRUE) {
             $this->session->set_flashdata('flash', 'Dihapus');
             redirect('babkursus/managebab/'  . $id_kursus);
-        } 
+        }
     }
 }

@@ -50,15 +50,7 @@ class Quiz extends CI_Controller
     function insert_soal()
     {
         $id_kursus = $this->input->post('id_kursus');
-        $id_soal = $this->input->post('id_soal');
-        $data = array(
-            'id_kursus' => $id_kursus,
-            'id_soal' => $id_soal,
-            'soal_quiz' => $this->input->post('soal_quiz'),
-            'insert_by' => $this->session->userdata("nama")
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert_soal($data);
+        $result = $this->m_quiz->insert_soal();
         if ($result == TRUE) {
             redirect('quiz/managesoal/' . $id_kursus);
         } else {
@@ -79,18 +71,8 @@ class Quiz extends CI_Controller
 
     function update_soal()
     {
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $id_soal = $this->input->post('id_soal');
         $id_kursus = $this->input->post('id_kursus');
-        $data = array(
-            'soal_quiz' => $this->input->post('soal_quiz'),
-            'insert_by' => $this->session->userdata("nama"),
-            'last_update' => mdate($datestring, $time)
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->update_soal($id_soal, $data);
-
+        $result = $this->m_quiz->update_soal();
         if ($result == TRUE) {
             redirect('quiz/managesoal/' . $id_kursus);
         } else {
@@ -161,15 +143,7 @@ class Quiz extends CI_Controller
     {
         $id_soal = $this->input->post('id_soal');
         $id_kursus = $this->input->post('id_kursus');
-        $data = array(
-            'id_jawaban' => $this->input->post('id_jawaban'),
-            'id_soal' => $this->input->post('id_soal'),
-            'jawaban_quiz' => $this->input->post('jawaban_quiz'),
-            'insert_by' => $this->session->userdata("nama")
-        );
-
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->insert_jawaban($data);
+        $result = $this->m_quiz->insert_jawaban();
         if ($result == TRUE) {
             redirect('quiz/managepilihan/' . $id_soal . '?id_kursus=' . $id_kursus);
         } else {
@@ -202,18 +176,10 @@ class Quiz extends CI_Controller
 
     function update_jawaban()
     {
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
         $id_soal = $this->input->post('id_soal');
         $id_kursus = $this->input->post('id_kursus');
-        $data = array(
 
-            'jawaban_quiz' => $this->input->post('jawaban_quiz'),
-            'last_update' => mdate($datestring, $time),
-            'insert_by' => $this->session->userdata("nama")
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_quiz->update_jawaban($this->input->post('id_jawaban'), $data);
+        $result = $this->m_quiz->update_jawaban();
 
         if ($result == TRUE) {
             redirect('quiz/managepilihan/' . $id_soal . '?id_kursus=' . $id_kursus);

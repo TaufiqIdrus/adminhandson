@@ -10,6 +10,7 @@ class M_login extends CI_Model
 	function catat_login()
 	{
 		$data = array(
+			'id_log' => uniqid(),
 			'id_user' => $this->session->userdata("id_user"),
 			'username' => $this->session->userdata("nama"),
 			'controller' => $this->uri->segment(1),
@@ -28,6 +29,7 @@ class M_login extends CI_Model
 	function catat_logout()
 	{
 		$data = array(
+			'id_log' => uniqid(),
 			'id_user' => $this->session->userdata("id_user"),
 			'username' => $this->session->userdata("nama"),
 			'controller' => $this->uri->segment(1),

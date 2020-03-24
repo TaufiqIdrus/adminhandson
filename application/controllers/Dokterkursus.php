@@ -57,14 +57,8 @@ class Dokterkursus extends CI_Controller
     {
 
         $id_kursus = $this->input->post('id_kursus');
-        $data = array(
-            'id_dokter' => $this->input->post('id_dokter'),
-            'id_kursus' => $this->input->post('id_kursus'),
-            'id_dokterkursus' => $this->input->post('id_dokterkursus')
-        );
-
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_dokterkursus->insert_dokter($data);
+        
+        $result = $this->m_dokterkursus->insert_dokter();
         if ($result == TRUE) {
             redirect('dokterkursus/managedokter/'  . $id_kursus);
         } else {

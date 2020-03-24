@@ -67,15 +67,7 @@ class User extends CI_Controller
     function insert_user()
     {
         if ($this->input->post('password') == $this->input->post('password_confirm')) {
-            $data = array(
-                'username' => $this->input->post('username'),
-                'emailaddress' => $this->input->post('emailaddress'),
-                'level' => $this->input->post('level'),
-                'insert_by' => $this->session->userdata("nama"),
-                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
-            );
-            $data = $this->security->xss_clean($data);
-            $result = $this->m_user->insert($data);
+            $result = $this->m_user->insert_user();
             if ($result == TRUE) {
                 redirect('user');
             } else {
@@ -88,20 +80,9 @@ class User extends CI_Controller
 
     function update_user()
     {
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
+
         if ($this->input->post('password') == $this->input->post('password_confirm')) {
-            $data = array(
-                'username' => $this->input->post('username'),
-                'emailaddress' => $this->input->post('emailaddress'),
-                'level' => $this->input->post('level'),
-                'insert_by' => $this->session->userdata("nama"),
-                'last_update' => mdate($datestring, $time),
-                'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
-            );
-            $id_user = $this->input->post('id_user');
-            $data = $this->security->xss_clean($data);
-            $result = $this->m_user->update($id_user, $data);
+            $result = $this->m_user->update_user();
             if ($result == TRUE) {
                 redirect('user');
             } else {

@@ -47,7 +47,7 @@ class Dokter extends CI_Controller
 
     function detail($id_dokter)
     {
-        $data['judul'] = 'Update Kursus';
+        $data['judul'] = 'Detail Dokter';
         $data['id_dokter'] = $id_dokter;
         $data['dokter'] = $this->m_dokter->display_byID($id_dokter);
         $this->load->view('templates/header', $data);
@@ -57,19 +57,7 @@ class Dokter extends CI_Controller
 
     function insert_dokter()
     {
-        $data = array(
-            'dokter' => $this->input->post('dokter'),
-            'spesialis' => $this->input->post('spesialis'),
-            'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
-            'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
-            'motto' => $this->input->post('motto'),
-            'gambar' => $this->input->post('gambar'),
-            'insert_by' => $this->session->userdata("nama")
-
-
-        );
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_dokter->insert($data);
+        $result = $this->m_dokter->insert_dokter();
         if ($result == TRUE) {
             redirect('dokter');
         } else {
@@ -79,20 +67,7 @@ class Dokter extends CI_Controller
 
     function update_dokter()
     {
-        $datestring = '%Y-%m-%d %h:%i:%s';
-        $time = now('Asia/Jakarta');
-        $data = array(
-            'dokter' => $this->input->post('dokter'),
-            'spesialis' => $this->input->post('spesialis'),
-            'rwyt_pendidikan' => $this->input->post('rwyt_pendidikan'),
-            'rwyt_pekerjaan' => $this->input->post('rwyt_pekerjaan'),
-            'motto' => $this->input->post('motto'),
-            'gambar' => $this->input->post('gambar'),
-            'last_update' => mdate($datestring, $time)
-        );
-        $id_dokter = $this->input->post('id_dokter');
-        $data = $this->security->xss_clean($data);
-        $result = $this->m_dokter->update($id_dokter, $data);
+        $result = $this->m_dokter->update_dokter();
         if ($result == TRUE) {
             redirect('dokter');
         } else {

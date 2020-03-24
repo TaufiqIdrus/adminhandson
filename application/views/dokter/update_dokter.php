@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>dokter" class="btn btn-secondary">kembali</a>
                 <p class="h1">Update data Dokter</p>
-                <form action="<?= base_url() ?>dokter/update_dokter" method="POST">
+                <form action="<?= base_url() ?>dokter/update_dokter" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),
@@ -36,6 +36,7 @@
                     
                     <label for="gambar" class="">File Gambar</label>
                     <input name="gambar" type="file" class="form-control-file">
+                    <input name="old_image" type="hidden" class="form-control-file" value="<?= $row->gambar ?>">
                     
                     <div class="divider"></div>
                     <button type="submit" class="btn btn-primary" name="update">Update</button>

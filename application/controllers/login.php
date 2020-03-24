@@ -35,17 +35,13 @@ class Login extends CI_Controller
 		$id_user = $this->m_login->display_by_username($username);
 		$userdata = $this->m_login->cek_login("users", $where);
 		if ($userdata[0]->level == 'admin' && password_verify($password, $userdata[0]->password)) {
-			$log = $this->m_login->get_id();
-			$id_log = $log[0]->id_log;
 			$data_session = array(
 				'id_user' => $id_user,
 				'nama' => $username,
 				'status' => "login"
 			);
-
 			$this->session->set_userdata($data_session);
 			$this->m_login->catat_login();
-
 			redirect(base_url("dashboard"));
 		} else {
 			redirect(base_url("login?pesan=gagal"));

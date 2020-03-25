@@ -29,6 +29,15 @@ class User extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip()
+    {
+        $data['judul'] = 'Arsip User';
+        $data['user'] = $this->m_user->arsip();
+        $this->load->view('templates/header', $data);
+        $this->load->view('user/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insert()
     {
         $data['judul'] = 'Insert User';

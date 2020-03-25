@@ -82,4 +82,10 @@ class M_kategori extends CI_Model
         $query = $this->db->get_where('kategori', array('id_kategori' => $id),);
         return $query->result();
     }
+
+    function arsip()
+    {
+        $query = $this->db->get_where('kategori', array('status' => 'deleted'));
+        return $query->result();
+    }
 }

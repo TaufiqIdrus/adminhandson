@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>profil" class="btn btn-secondary">kembali</a>
                 <p class="h1">Update profile user</p>
-                <form action="<?= base_url() ?>profil/update_profil" method="POST">
+                <form action="<?= base_url() ?>profil/update_profil" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),
@@ -32,8 +32,9 @@
 
                         <div class="divider"></div>
 
-                        <label for="profilepic" class="">Foto Profil</label>
-                        <input name="profilepic" type="file" class="form-control-file" value="res">
+                        <label for="gambar" class="">Foto Profil</label>
+                        <input name="gambar" type="file" class="form-control-file" value="res">
+                        <input type="hidden" name="old_image" value="<?= $row->gambar ?>" />
 
                         <div class="divider"></div>
 

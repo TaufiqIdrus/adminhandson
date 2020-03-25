@@ -41,6 +41,16 @@ class Babkursus extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    
+    function arsip()
+    {
+        $data['judul'] = 'Arsip Bab Video Kursus';
+        $data['babkursus'] = $this->m_babkursus->arsip();
+        $this->load->view('templates/header', $data);
+        $this->load->view('babkursus/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insertbab($id_kursus)
     {
         $data['judul'] = 'Insert Bab Video Kursus';

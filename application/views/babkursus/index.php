@@ -12,6 +12,8 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
+                <a href="<?= base_url() ?>babkursus/arsip/" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>

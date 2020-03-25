@@ -29,12 +29,21 @@ class Profil extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip()
+    {
+        $data['judul'] = 'Arsip Profil User';
+        $data['user'] = $this->m_profil->display();
+        $this->load->view('templates/header', $data);
+        $this->load->view('profil/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insert($id_user)
     {
         $data['judul'] = 'Insert Profil User';
         $data['id_user'] = $id_user;
         $this->load->view('templates/header', $data);
-        $this->load->view('profil/insert_profil');
+        $this->load->view('profil/insert_profil', $data);
         $this->load->view('templates/footer');
     }
 
@@ -51,7 +60,6 @@ class Profil extends CI_Controller
     function insert_profil()
     {
         $id_user = $this->input->post('id_user');
-
         $result = $this->m_profil->insert_profil();
         if ($result == TRUE) {
             redirect('profil');

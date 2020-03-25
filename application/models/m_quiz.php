@@ -248,4 +248,16 @@ class M_quiz extends CI_Model
         $query = $this->db->get_where('soal_quiz', array('id_soal_quiz' => $id));
         return $query->result();
     }
+
+    function arsip_soal($id)
+    {
+        $query = $this->db->get_where('kursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        return $query->result();
+    }
+
+    function arsip_jawaban($id)
+    {
+        $query = $this->db->get_where('kursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        return $query->result();
+    }
 }

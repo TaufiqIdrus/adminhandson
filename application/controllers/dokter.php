@@ -27,6 +27,15 @@ class Dokter extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip()
+    {
+        $data['judul'] = 'Arsip Dokter';
+        $data['dokter'] = $this->m_dokter->arsip();
+        $this->load->view('templates/header', $data);
+        $this->load->view('dokter/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insert()
     {
         $data['judul'] = 'Insert Dokter';

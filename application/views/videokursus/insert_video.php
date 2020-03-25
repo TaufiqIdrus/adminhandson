@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>videokursus/manage/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
                 <p class="h1">Insert video</p>
-                <form action="<?= base_url() ?>videokursus/insert_video" method="POST">
+                <form action="<?= base_url() ?>videokursus/insert_video" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),
@@ -32,6 +32,7 @@
 
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                     <input type="hidden" name="id_kursus" value="<?= $id_kursus ?>" />
+                    <input type="hidden" name="id_video" value="<?= uniqid() ?>" />
 
                     <button type="submit" class="btn btn-primary" name="insert">Insert</button>
                 </form>

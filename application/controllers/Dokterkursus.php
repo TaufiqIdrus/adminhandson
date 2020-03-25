@@ -43,6 +43,16 @@ class Dokterkursus extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip($id_kursus)
+    {
+        $data['judul'] = 'Arsip Dokter Pengajar Kursus';
+        $data['dokterkursus'] = $this->m_dokterkursus->arsip($id_kursus);
+        $data['id_kursus'] = $id_kursus;
+        $this->load->view('templates/header', $data);
+        $this->load->view('dokterkursus/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insertdokter($id_kursus)
     {
         $data['judul'] = 'Insert Dokter Pengajar Kursus';

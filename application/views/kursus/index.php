@@ -15,6 +15,8 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
+                <a href="<?= base_url() ?>kursus/arsip/" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
@@ -33,13 +35,13 @@
                             echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $row->kursus . "</td>";
                             echo "<td>" . $row->deskripsi_singkat . "</td>";
-                            echo "<td>Rp." .number_format($row->harga, 0, ",", "."). "</td>";
+                            echo "<td>Rp." . number_format($row->harga, 0, ",", ".") . "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                         ?>
                             <td>
-                                <a href="kursus/delete_kursus/<?=$row->id_kursus?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
-                                <a href="kursus/update/<?=$row->id_kursus?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
-                                <a href="kursus/detail/<?=$row->id_kursus?>"><i class="fas fa-info-circle fa-xs text-white p-2 bg-primary rounded"></i></a>
+                                <a href="kursus/delete_kursus/<?= $row->id_kursus ?>"><i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                <a href="kursus/update/<?= $row->id_kursus ?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+                                <a href="kursus/detail/<?= $row->id_kursus ?>"><i class="fas fa-info-circle fa-xs text-white p-2 bg-primary rounded"></i></a>
                             </td>
                         <?php
                             echo "</tr>";

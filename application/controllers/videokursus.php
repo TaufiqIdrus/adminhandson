@@ -39,6 +39,15 @@ class Videokursus extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip()
+    {
+        $data['judul'] = 'Arsip Video Kursus';
+        $data['video'] = $this->m_videokursus->arsip();
+        $this->load->view('templates/header', $data);
+        $this->load->view('videokursus/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insert($id_kursus)
     {
         $data['judul'] = 'Insert Video Kursus';
@@ -59,6 +68,19 @@ class Videokursus extends CI_Controller
         $data['video'] = $this->m_videokursus->display_byID($id_video);
         $this->load->view('templates/header', $data);
         $this->load->view('videokursus/update_video');
+        $this->load->view('templates/footer');
+    }
+
+    function play($id_video)
+    {
+        $data['judul'] = 'Play Video Kursus';
+        // $id_kursus = $this->input->get('id_kursus');
+        $data['id_video'] = $id_video;
+        $data['id_kursus'] = $this->input->get('id_kursus');
+        // $data['bab_kursus'] = $this->m_videokursus->display_bab($id_kursus);
+        $data['video'] = $this->m_videokursus->display_byID($id_video);
+        $this->load->view('templates/header', $data);
+        $this->load->view('videokursus/play_video');
         $this->load->view('templates/footer');
     }
 

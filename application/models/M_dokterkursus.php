@@ -85,4 +85,10 @@ class M_dokterkursus extends CI_Model
         $data = $this->security->xss_clean($data);
         $this->db->insert('log_aktivitas', $data);
     }
+
+    function arsip($id)
+    {
+        $query = $this->db->get_where('dokterkursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        return $query->result();
+    }
 }

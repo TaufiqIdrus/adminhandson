@@ -39,15 +39,27 @@ class M_babkursus extends CI_Model
         return $query->result();
     }
 
+    function arsip()
+    {
+        $query = $this->db->get_where('bab_kursus', array('status'=>'deleted'));
+        return $query->result();
+    }
+
     function displaykursus($id_bab)
     {
-        $query = $this->db->get_where('bab_kursus', array('id_bab' => $id_bab));
+        $query = $this->db->get_where('bab_kursus', array('id_bab' => $id_bab, 'status' => 'active'));
         return $query->result()[0]->bab_kursus;
+    }
+
+    function display_kursus($id)
+    {
+        $query = $this->db->get_where('kursus', array('id_kursus' => $id));
+        return $query->result()[0]->kursus;
     }
 
     function displayjumlahbab($id_kursus)
     {
-        $query = $this->db->get_where('bab_kursus', array('id_kursus' => $id_kursus));
+        $query = $this->db->get_where('bab_kursus', array('id_kursus' => $id_kursus , 'status' => 'active'));
         return $query->num_rows();
     }
 

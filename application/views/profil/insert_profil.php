@@ -4,7 +4,7 @@
             <div class="card-body">
                 <a href="<?= base_url() ?>profil" class="btn btn-secondary">kembali</a>
                 <p class="h1">Insert profil user</p>
-                <form action="<?= base_url() ?>profil/insert_profil" method="POST">
+                <form action="<?= base_url() ?>profil/insert_profil" method="POST" enctype="multipart/form-data">
                     <?php
                     $csrf = array(
                         'name' => $this->security->get_csrf_token_name(),
@@ -30,12 +30,13 @@
                     <textarea name="pendidikan" type="textarea" class="form-control"> </textarea>
 
                     <div class="divider"></div>
-                    <label for="profilepic" class="">Foto Profil</label>
-                    <input name="profilepic" type="file" class="form-control-file">
+                    <label for="gambar" class="">Foto Profil</label>
+                    <input name="gambar" type="file" class="form-control-file">
                     <div class="divider"></div>
 
                     <input type="hidden" name="<?= $csrf['name']; ?>" value="<?= $csrf['hash']; ?>" />
                     <input type="hidden" name="id_user" value="<?= $id_user ?>" />
+                    <input type="hidden" name="id_profile" value="<?= uniqid() ?>" />
 
                     <button type="submit" class="btn btn-primary" name="insert">Insert</button>
                 </form>

@@ -2,9 +2,9 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>user" class="btn btn-secondary">kembali</a>
                 <p class="h1">Detail data user</p>
                 <br>
+                <a href="<?= base_url() ?>user" class="btn btn-secondary">kembali</a>
                 <?php
                 foreach ($user as $row) {
                 ?>
@@ -20,11 +20,16 @@
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Level</h5>
-                        <?= $row->level; } 
-                        foreach ($profil as $row) {?>
+                    <?= $row->level;
+                }
+                foreach ($profil as $row) { ?>
                     </div>
                     <div class="divider"></div>
                     <h4>Detail profil user</h4>
+                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                        <h5 class="card-title">Gambar</h5>
+                        <img src="<?= base_url() ?>upload/profil/<?= $row->gambar ?>" alt="" height="200" width="200">
+                    </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Nama Lengkap</h5>
                         <?= $row->firstname . " " . $row->lastname ?>
@@ -45,14 +50,10 @@
                         <h5 class="card-title">pendidikan</h5>
                         <?= $row->pendidikan ?>
                     </div>
-                    
 
-                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
-                        <h5 class="card-title">Gambar</h5>
-                        <img src="<?= $row->profilepic ?>" alt="">
-                    <?php } ?>
 
-                    </div>
+
+                <?php } ?>
             </div>
         </div>
     </div>

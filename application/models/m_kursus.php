@@ -157,4 +157,10 @@ class M_kursus extends CI_Model
             return array_map('unlink', glob(FCPATH . "upload/kursus/$filename.*"));
         }
     }
+
+    function arsip()
+    {
+        $query = $this->db->get_where('kursus', array('status'=>'deleted'));
+        return $query->result();
+    }
 }

@@ -144,4 +144,10 @@ class M_dokter extends CI_Model
             return array_map('unlink', glob(FCPATH . "upload/dokter/$filename.*"));
         }
     }
+
+    function arsip()
+    {
+        $query = $this->db->get_where('dokter', array('status'=>'deleted'));
+        return $query->result();
+    }
 }

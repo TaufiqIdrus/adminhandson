@@ -26,6 +26,15 @@ class Kategori extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip()
+    {
+        $data['judul'] = 'Arsip Kategori';
+        $data['kategori'] = $this->m_kategori->arsip();
+        $this->load->view('templates/header', $data);
+        $this->load->view('kategori/arsip', $data);
+        $this->load->view('templates/footer');
+    }
+
     function insert()
     {
         $data['judul'] = 'Insert Kategori';

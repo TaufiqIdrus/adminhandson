@@ -97,4 +97,10 @@ class M_user extends CI_Model
         $query = $this->db->get_where('users', array('id_user' => $id));
         return $query->result();
     }
+
+    function arsip()
+    {
+        $query = $this->db->get_where('users', array('status'=>'deleted'));
+        return $query->result();
+    }
 }

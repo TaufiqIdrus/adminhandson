@@ -32,7 +32,7 @@ class Profil extends CI_Controller
     function arsip()
     {
         $data['judul'] = 'Arsip Profil User';
-        $data['user'] = $this->m_profil->display();
+        $data['user'] = $this->m_profil->arsip();
         $this->load->view('templates/header', $data);
         $this->load->view('profil/arsip', $data);
         $this->load->view('templates/footer');

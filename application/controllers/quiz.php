@@ -38,6 +38,26 @@ class Quiz extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+    function arsip_soal($id_kursus)
+    {
+        $data['judul'] = 'Arsip Soal Quiz';
+        $data['id_kursus'] = $id_kursus;
+        $data['soal'] = $this->m_quiz->arsip_soal($id_kursus);
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/arsip_soal', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function arsip_pilihan($id_soal)
+    {
+        $data['judul'] = 'Arsip Pilihan Jawaban';
+        $data['id_soal'] = $id_soal;
+        $data['jawaban'] = $this->m_quiz->arsip_jawaban($id_soal);
+        $data['id_kursus'] = $this->input->get('id_kursus');
+        $this->load->view('templates/header', $data);
+        $this->load->view('quiz/arsip_pilihan', $data);
+        $this->load->view('templates/footer');
+    }
     function insertsoal($id_kursus)
     {
         $data['judul'] = 'Insert Soal Quiz';

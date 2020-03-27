@@ -9,13 +9,17 @@
                     </div>
                 </div>
                 <div class="page-title-actions">
-                    <a href="<?= base_url() ?>quiz/insertjawaban/<?= $id_soal?>?id_kursus=<?=$id_kursus?>" class="mb-2 mr-2 btn btn-primary">Insert Jawaban</a>
+                    <a href="<?= base_url() ?>quiz/insertjawaban/<?= $id_soal ?>?id_kursus=<?= $id_kursus ?>" class="mb-2 mr-2 btn btn-primary">Insert Jawaban</a>
                 </div>
             </div>
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>quiz/managesoal/<?=$id_kursus?>" class="btn btn-secondary">kembali</a>
+                <div class="float-right">
+                    <a href="<?= base_url() ?>quiz/arsip_pilihan/<?= $id_soal ?>?id_kursus=<?= $id_kursus ?>" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                    <div class="divider"></div>
+                </div>
+                <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
@@ -32,8 +36,8 @@
                                 <td><?= $i++ ?></td>
                                 <td><?= $row->jawaban_quiz ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>quiz/delete_jawaban/<?= $row->id_jawaban?>?id_kursus=<?=$id_kursus?>&id_soal=<?=$id_soal?>"> <i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
-                                    <a href="<?= base_url() ?>quiz/updatejawaban/<?= $row->id_jawaban ?>?id_kursus=<?=$id_kursus?>&id_soal=<?=$id_soal?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
+                                    <a href="<?= base_url() ?>quiz/delete_jawaban/<?= $row->id_jawaban ?>?id_kursus=<?= $id_kursus ?>&id_soal=<?= $id_soal ?>"> <i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                    <a href="<?= base_url() ?>quiz/updatejawaban/<?= $row->id_jawaban ?>?id_kursus=<?= $id_kursus ?>&id_soal=<?= $id_soal ?>"><i class="fas fa-edit fa-xs text-white p-2 bg-warning rounded"></i></a>
                                 </td>
                             </tr>
 

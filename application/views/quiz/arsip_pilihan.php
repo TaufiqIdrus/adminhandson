@@ -3,7 +3,7 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div>Manage Dokter Pengajar Kursus
+                    <div>Arsip Pilihan Jawaban
                         <div class="page-title-subheading">
                         </div>
                     </div>
@@ -12,31 +12,30 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-            <a href="<?= base_url() ?>dokterkursus/arsip/" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+            <a href="<?= base_url() ?>quiz/managepilihan/<?= $id_soal ?>?id_kursus=<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Text Jawaban</th>
+                            <th>Teks Soal</th>
                             <th>Judul Kursus</th>
-                            <th>Jumlah Dokter Pengajar</th>
-                            <th>Menu</th>
+                            <th>Tanggal Arsip</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($kursus as $row) {
-                            echo "<tr>";
-                            echo "<td>" . $i++ . "</td>";
-                            echo "<td>" . $row->kursus . "</td>";
-                            echo "<td>" . $this->m_dokterkursus->displayjumlahdokter($row->id_kursus) . "</td>";
-                        ?>
-                            <td>
-                                <a href="dokterkursus/managedokter/<?=$row->id_kursus?>" class="badge badge-primary">Manage</a>
-                            </td>
-                        <?php
-                            echo "</tr>";
-                        }
+                        foreach ($jawaban as $row) { ?>
+                            <tr>
+                                <td><?= $i++ ?></td>
+                                <td><?= $row->jawaban_quiz ?></td>
+                                <td> <?=$this->m_quiz->display_soal_arsip($row->id_soal)?></td>
+                                <td><?=$this->m_quiz->display_kursus_arsip($id_kursus)?> </td>
+                                <td><?= $row->last_update ?> </td>
+                            </tr>
+
+                        <?php }
                         ?>
                     </tbody>
                 </table>

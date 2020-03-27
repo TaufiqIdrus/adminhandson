@@ -15,6 +15,10 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
+                <div class="float-right">
+                    <a href="<?= base_url() ?>quiz/arsip_soal/<?= $id_kursus ?>" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                    <div class="divider"></div>
+                </div>
                 <a href="<?= base_url() ?>quiz" class="btn btn-secondary">kembali</a>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
@@ -53,11 +57,11 @@
                                     } ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url() ?>quiz/delete_soal/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-danger mb-2">Hapus soal</a><br>
-                                    <a href="<?= base_url() ?>quiz/updatesoal/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-warning mb-2">update soal</a><br>
-                                    <a href="<?= base_url() ?>quiz/gantijawaban/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-success mb-2">Ganti jawaban benar</a><br>
-                                    <a href="<?= base_url() ?>quiz/managepilihan/<?= $row->id_soal ?>?id_kursus=<?=$id_kursus?>" class="badge badge-primary mb-2">Manage pilihan jawaban</a><br>
-                                    </td>
+                                    <a href="<?= base_url() ?>quiz/delete_soal/<?= $row->id_soal ?>?id_kursus=<?= $id_kursus ?>" class="badge badge-danger mb-2">Hapus soal</a><br>
+                                    <a href="<?= base_url() ?>quiz/updatesoal/<?= $row->id_soal ?>?id_kursus=<?= $id_kursus ?>" class="badge badge-warning mb-2">update soal</a><br>
+                                    <a href="<?= base_url() ?>quiz/gantijawaban/<?= $row->id_soal ?>?id_kursus=<?= $id_kursus ?>" class="badge badge-success mb-2">Ganti jawaban benar</a><br>
+                                    <a href="<?= base_url() ?>quiz/managepilihan/<?= $row->id_soal ?>?id_kursus=<?= $id_kursus ?>" class="badge badge-primary mb-2">Manage pilihan jawaban</a><br>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>

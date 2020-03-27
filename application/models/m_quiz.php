@@ -251,13 +251,25 @@ class M_quiz extends CI_Model
 
     function arsip_soal($id)
     {
-        $query = $this->db->get_where('kursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        $query = $this->db->get_where('soal_quiz', array('status'=>'deleted'));
         return $query->result();
+    }
+
+    function display_kursus_arsip($id)
+    {
+        $query = $this->db->get_where('kursus', array('id_kursus'=>$id));
+        return $query->result()[0]->kursus;
+    }
+
+    function display_soal_arsip($id)
+    {
+        $query = $this->db->get_where('soal_quiz', array('id_soal'=>$id));
+        return $query->result()[0]->soal_quiz;
     }
 
     function arsip_jawaban($id)
     {
-        $query = $this->db->get_where('kursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        $query = $this->db->get_where('jawaban_quiz', array('status'=>'deleted'));
         return $query->result();
     }
 }

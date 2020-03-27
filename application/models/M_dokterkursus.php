@@ -9,6 +9,7 @@ class M_dokterkursus extends CI_Model
             
             'id_dokter' => $this->input->post('id_dokter'),
             'id_kursus' => $this->input->post('id_kursus'),
+            'insert_by' => $this->session->userdata("nama"),
             'id_dokterkursus' => $this->input->post('id_dokterkursus')
         );
 
@@ -86,9 +87,21 @@ class M_dokterkursus extends CI_Model
         $this->db->insert('log_aktivitas', $data);
     }
 
-    function arsip($id)
+    function arsip()
     {
-        $query = $this->db->get_where('dokterkursus', array('id_kursus' => $id, 'status'=>'deleted'));
+        $query = $this->db->get_where('dokter_kursus', array('status'=>'deleted'));
         return $query->result();
+    }
+
+    function display_kursus($id)
+    {
+        $query = $this->db->get_where('kursus', array('id_kursus' => $id));
+        return $query->result()[0]->kursus;
+    }
+
+    function display_dokter($id)
+    {
+        $query = $this->db->get_where('dokter', array('id_dokter' => $id));
+        return $query->result()[0]->dokter;
     }
 }

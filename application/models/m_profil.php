@@ -158,9 +158,15 @@ class M_profil extends CI_Model
         }
     }
 
-    function arsip($id)
+    function arsip()
     {
         $query = $this->db->get_where('user_profile', array('status'=>'deleted'));
         return $query->result();
+    }
+
+    function display_username($id)
+    {
+        $query = $this->db->get_where('users', array('id_user'=>$id));
+        return $query->result()[0]->username;
     }
 }

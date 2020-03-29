@@ -30,7 +30,8 @@ class Login extends CI_Controller
 		$password = $this->security->xss_clean($password);
 		$where = array(
 			'username' => $username,
-			'level' => 'admin'
+			'level' => 'admin',
+			'status' => 'active'
 		);
 		$id_user = $this->m_login->display_by_username($username);
 		$userdata = $this->m_login->cek_login("users", $where);

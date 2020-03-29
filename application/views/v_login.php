@@ -28,7 +28,7 @@
 								<div class="modal-body">
 									<div class="h5 modal-title text-center">
 										<h4 class="mt-2">
-											<div>Selamat Datang</div>
+											<div>Selamat Datang di Admin Panel Handson</div>
 											<span>Masukkan Username dan Password</span>
 										</h4>
 									</div>

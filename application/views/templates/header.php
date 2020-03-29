@@ -22,7 +22,7 @@
   <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
     <div class="app-header header-shadow">
       <div class="app-header__logo">
-        <div class="app-header__logo">
+        <div class="app-header__logo scrollbar-container ps">
         <img src="assets/img/logofix.png"/></div>
         <div class="header__pane ml-auto">
           <div>

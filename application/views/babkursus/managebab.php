@@ -16,6 +16,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
             <button onclick="kembali()" class="btn btn-secondary">kembali</button>
+            <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
@@ -41,4 +42,3 @@
             </div>
         </div>
     </div>
-</div>

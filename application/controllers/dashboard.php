@@ -12,7 +12,7 @@ class Dashboard extends CI_Controller{
 	}
 
 	function index(){
-		$data['judul'] = 'Halaman Admin Handson Kelola.net';
+		$data['judul'] = 'Dashboard';
 		$this->load->view('templates/header', $data);
 		$this->load->view('dashboard/index');
 		$this->load->view('templates/footer');

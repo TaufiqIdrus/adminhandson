@@ -1,3 +1,10 @@
+                <div class="app-wrapper-footer">
+                    <div class="app-footer">
+                        <div class="app-footer__inner">
+                            &copy; 2020 Handson Team
+                        </div>
+                    </div>
+                </div>                       
             </div>
         </div>
     <script src="<?= base_url(); ?>assets/js/sweetalert2.all.min.js"></script>

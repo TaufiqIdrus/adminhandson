@@ -19,7 +19,7 @@
                     <a href="<?= base_url() ?>quiz/arsip_pilihan/<?= $id_soal ?>?id_kursus=<?= $id_kursus ?>" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
                     <div class="divider"></div>
                 </div>
-                <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>

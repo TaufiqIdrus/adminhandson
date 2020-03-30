@@ -2,7 +2,7 @@
   <div class="app-main__inner">
     <div class="main-card mb-3 card">
       <div class="card-body">
-        <a href="<?= base_url() ?>babkursus/managebab/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+      <button onclick="kembali()" class="btn btn-secondary">kembali</button>
         <p class="h1">Insert Bab Video Kursus</p>
         <form action="<?= base_url() ?>babkursus/insert_bab" method="POST">
           <?php

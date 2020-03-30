@@ -163,4 +163,10 @@ class M_kursus extends CI_Model
         $query = $this->db->get_where('kursus', array('status'=>'deleted'));
         return $query->result();
     }
+
+    function export()    
+    {
+        $query = $this->db->query("select * from kursus");
+        return $query->result();
+    }
 }

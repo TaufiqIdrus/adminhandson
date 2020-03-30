@@ -14,25 +14,17 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="<?= base_url() ?>css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.css">
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/main.87c0748b313a1dda75f5.js"> </script>
+  <script type="text/javascript" src="<?= base_url() ?>assets/scripts/kembali.js"> </script>
 
-  <style>
-    .logo-srcc {
-      height: 23px;
-      width: 97px;
-      background: url(http://localhost/adminhandson/assets/logo/logo.png)
-    }
-  </style>
 </head>
 
 <body>
   <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
     <div class="app-header header-shadow">
       <div class="app-header__logo">
-        <!-- <img src="<?= base_url() ?>assets/logo/logo.png" alt="" width="200" height="200"> -->
-
-        <div class="logo-srcc"> </div>
+        <div class="app-header__logo scrollbar-container ps">
+          <img src="<?=base_url()?>assets/logo/logofix.png"/></div>
         <div class="header__pane ml-auto">
           <div>
             <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -67,7 +59,6 @@
             <div class="widget-content p-0">
               <div class="widget-content-wrapper">
                 <div class="widget-content-left">
-
                   <div class="btn-group">
                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                       <div class="d-flex justify-content-center align-items-center">
@@ -195,34 +186,6 @@
                   <i class="fas fa-list fa-lg mr-2"></i>Kategori
                 </a>
               </li>
-              <li>
-                <a href="<?= base_url() ?>laporan">
-                  <i class="fas fa-paperclip fa-lg mr-2"></i>Laporan
-                </a>
-                <ul>
-                  <li>
-                    <a href="<?= base_url() ?>kategori">
-                      <i class="metismenu-icon"></i>User
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url() ?>">
-                      <i class="metismenu-icon"></i>Kursus
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url() ?>">
-                      <i class="metismenu-icon"></i>Keuangan
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url() ?>">
-                      <i class="metismenu-icon"></i>Quiz
-                    </a>
-                  </li>
-                </ul>
-              </li>
-
             </ul>
           </div>
         </div>

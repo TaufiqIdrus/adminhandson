@@ -40,6 +40,12 @@ class M_user extends CI_Model
         return $query->result();
     }
 
+    function export()    
+    {
+        $query = $this->db->query("select * from users");
+        return $query->result();
+    }
+
     function update_user()
     {
         $datestring = '%Y-%m-%d %h:%i:%s';

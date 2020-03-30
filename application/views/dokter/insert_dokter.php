@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>dokter" class="btn btn-secondary">kembali</a>
+            <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Insert data Dokter</p>
                 <form action="<?= base_url() ?>dokter/insert_dokter" method="POST" enctype="multipart/form-data">
                     <?php

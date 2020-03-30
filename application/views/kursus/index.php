@@ -16,6 +16,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <a href="<?= base_url() ?>kursus/arsip/" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                <a href="<?= base_url() ?>kursus/export/" class="btn btn-success"><i class="fas fa-file-export fa-xs text-white rounded "></i> Laporan</a>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>

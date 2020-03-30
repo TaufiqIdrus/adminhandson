@@ -3,7 +3,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <p class="h1">Update video</p>
-                <a href="<?= base_url() ?>videokursus/manage/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
 
                 <form action="<?= base_url() ?>videokursus/update_video" method="POST" enctype="multipart/form-data">
                     <?php

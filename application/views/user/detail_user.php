@@ -4,7 +4,7 @@
             <div class="card-body">
                 <p class="h1">Detail data user</p>
                 <br>
-                <a href="<?= base_url() ?>user" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <?php
                 foreach ($user as $row) {
                 ?>

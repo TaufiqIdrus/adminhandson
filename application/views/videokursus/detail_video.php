@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>Kursus" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Detail data Kursus</p>
                 <br>
                 <?php
@@ -34,7 +34,7 @@
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Kategori</h5>
-                        <?=$this->m_kategori->display_byID($row->id_kategori)[0]->kategori ?>
+                        <?= $this->m_kategori->display_byID($row->id_kategori)[0]->kategori ?>
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Bahasa</h5>
@@ -45,14 +45,14 @@
                         <?= $this->m_bahasa->display_byID($row->id_subtitle)[0]->bahasa ?>
 
                     </div>
-                    
+
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Gambar</h5>
                         <img src="<?= $row->gambar ?>" alt="">
-                <?php } ?>
+                    <?php } ?>
 
+                    </div>
             </div>
         </div>
     </div>
-</div>
 </div>

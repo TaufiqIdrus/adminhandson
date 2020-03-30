@@ -15,7 +15,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>dokterkursus" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
@@ -26,13 +26,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i = 1; 
+                        <?php $i = 1;
                         foreach ($dokterkursus as $row) { ?>
                             <tr>
                                 <td><?= $i++ ?></td>
                                 <td><?= $this->m_dokterkursus->displaynamadokter($row->id_dokter);  ?></td>
                                 <td>
-                                    <a href="<?= base_url() ?>dokterkursus/delete_dokter/<?= $row->id_dokterkursus?>?id_kursus=<?= $id_kursus ?>"> <i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                    <a href="<?= base_url() ?>dokterkursus/delete_dokter/<?= $row->id_dokterkursus ?>?id_kursus=<?= $id_kursus ?>"> <i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

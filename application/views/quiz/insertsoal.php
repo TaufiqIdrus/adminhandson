@@ -2,7 +2,7 @@
   <div class="app-main__inner">
     <div class="main-card mb-3 card">
       <div class="card-body">
-        <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+        <button onclick="kembali()" class="btn btn-secondary">kembali</button>
         <p class="h1">Insert Soal Quiz</p>
         <form action="<?= base_url() ?>quiz/insert_soal" method="POST">
           <?php

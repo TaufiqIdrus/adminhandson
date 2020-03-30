@@ -12,7 +12,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
@@ -29,7 +29,7 @@
                             <tr>
                                 <td><?= $i++ ?></td>
                                 <td><?= $row->soal_quiz ?></td>
-                                <td><?=$this->m_quiz->display_kursus_arsip($row->id_kursus)?> </td>
+                                <td><?= $this->m_quiz->display_kursus_arsip($row->id_kursus) ?> </td>
                                 <td><?= $row->last_update ?></td>
                             </tr>
                         <?php } ?>

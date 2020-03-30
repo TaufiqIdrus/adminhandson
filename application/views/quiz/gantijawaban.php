@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>quiz/managesoal/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Ganti jawaban quiz yang benar</p>
                 <form action="<?= base_url() ?>quiz/ganti_jawaban" method="POST">
                     <?php
@@ -18,13 +18,13 @@
 
                     <label for="id_jawaban">Harap pilih salah satu jawaban yang benar</label>
                     <select name="id_jawaban" class="form-control">
-                    <?php
-                    foreach ($pilihan as $row) { ?>
-                        
-                            <option value="<?=$row->id_jawaban?>"><?=$row->jawaban_quiz?></option>
-                        
+                        <?php
+                        foreach ($pilihan as $row) { ?>
 
-                    <?php } ?>
+                            <option value="<?= $row->id_jawaban ?>"><?= $row->jawaban_quiz ?></option>
+
+
+                        <?php } ?>
                     </select>
                     <div class="divider"></div>
                     <button type="submit" class="btn btn-primary" name="insert">Selesai</button>

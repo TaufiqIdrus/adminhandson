@@ -2,7 +2,7 @@
   <div class="app-main__inner">
     <div class="main-card mb-3 card">
       <div class="card-body">
-        <a href="<?= base_url() ?>dokterkursus/managedokter/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+        <button onclick="kembali()" class="btn btn-secondary">kembali</button>
         <p class="h1">Insert Dokter Pengajar Kursus</p>
         <form action="<?= base_url() ?>dokterkursus/insert_dokter" method="POST">
           <?php
@@ -16,7 +16,7 @@
           <select name="id_dokter" class="mb-2 form-control">
             <?php
             foreach ($dokter as $row) { ?>
-              <option value="<?= $row->id_dokter ?>"><?= $row->dokter?></option>
+              <option value="<?= $row->id_dokter ?>"><?= $row->dokter ?></option>
             <?php } ?>
 
           </select>

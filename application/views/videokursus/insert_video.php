@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>videokursus/manage/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Insert video</p>
                 <form action="<?= base_url() ?>videokursus/insert_video" method="POST" enctype="multipart/form-data">
                     <?php
@@ -20,7 +20,7 @@
                         foreach ($bab_kursus as $row) { ?>
                             <option value="<?= $row->id_bab ?>"><?= $row->bab_kursus ?></option>
                         <?php } ?>
-                    
+
                     </select>
 
                     <label for="durasi" class="">Durasi</label>

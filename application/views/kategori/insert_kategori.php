@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>kategori" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Insert data Kategori</p>
                 <form action="<?= base_url() ?>kategori/insert_kategori" method="POST">
                     <?php

@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>videokursus/manage/<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
 
                 <?php
                 foreach ($video as $row) {
@@ -12,7 +12,7 @@
                         <h2><?= $row->judul_video ?></h2>
                         <div class="divider"></div>
                         <video width="320" height="240" controls>
-                            <source src="<?=base_url()?>upload/video/<?=$row->video?>" type="video/mp4">
+                            <source src="<?= base_url() ?>upload/video/<?= $row->video ?>" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>

@@ -1,7 +1,14 @@
 <?php
+// Load library phpspreadsheet
+require('./excel/vendor/autoload.php');
+
+use PhpOffice\PhpSpreadsheet\Helper\Sample;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class User extends CI_Controller
 {
+
 
     function __construct()
     {
@@ -111,5 +118,73 @@ class User extends CI_Controller
         } else {
             redirect('user');
         }
+    }
+
+    public function export()
+    {
+        $users = $this->m_user->export();
+
+        $spreadsheet = new Spreadsheet;
+        // Set document properties
+        $spreadsheet->getProperties()->setCreator($this->session->userdata("nama"))
+            ->setLastModifiedBy($this->session->userdata("nama"))
+            ->setTitle('Laporan Akun User')
+            ->setSubject('Laporan Akun User')
+            ->setDescription('Dokumen laporan berisi detail akun user')
+            ->setKeywords('office 2007 openxml php')
+            ->setCategory('Test result file');
+
+        $spreadsheet->setActiveSheetIndex(0)
+            ->setCellValue('A1', 'No')
+            ->setCellValue('B1', 'ID User')
+            ->setCellValue('C1', 'Username')
+            ->setCellValue('D1', 'Email Address')
+            ->setCellValue('E1', 'Level')
+            ->setCellValue('F1', 'Status')
+            ->setCellValue('G1', 'Insert By')
+            ->setCellValue('H1', 'Insert Date')
+            ->setCellValue('I1', 'Last Update');
+
+
+        $kolom = 2;
+        $nomor = 1;
+        foreach ($users as $user) {
+
+            $spreadsheet->setActiveSheetIndex(0)
+                ->setCellValue('A' . $kolom, $nomor)
+                ->setCellValue('B' . $kolom, $user->id_user)
+                ->setCellValue('C' . $kolom, $user->username)
+                ->setCellValue('D' . $kolom, $user->emailaddress)
+                ->setCellValue('E' . $kolom, $user->level)
+                ->setCellValue('F' . $kolom, $user->status)
+                ->setCellValue('G' . $kolom, $user->insert_by)
+                ->setCellValue('H' . $kolom, $user->insert_date)
+                ->setCellValue('I' . $kolom, $user->last_update);
+
+            $kolom++;
+            $nomor++;
+        }
+        // Rename worksheet
+        $spreadsheet->getActiveSheet()->setTitle('Laporan Akun User ' . date('d-m-Y H'));
+
+        // Set active sheet index to the first sheet, so Excel opens this as the first sheet
+        $spreadsheet->setActiveSheetIndex(0);
+
+        // Redirect output to a client’s web browser (Xlsx)
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="Laporan User.xlsx"');
+        header('Cache-Control: max-age=0');
+        // If you're serving to IE 9, then the following may be needed
+        header('Cache-Control: max-age=1');
+
+        // If you're serving to IE over SSL, then the following may be needed
+        header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
+        header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT'); // always modified
+        header('Cache-Control: cache, must-revalidate'); // HTTP/1.1
+        header('Pragma: public'); // HTTP/1.0
+
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer->save('php://output');
+        exit;
     }
 }

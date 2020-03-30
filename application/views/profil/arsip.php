@@ -12,7 +12,7 @@
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>profil/" class="btn btn-secondary">kembali</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
@@ -29,7 +29,7 @@
                             echo "<tr>";
                             echo "<td>" . $i++ . "</td>";
                             echo "<td>" . $this->m_profil->display_username($row->id_user) . "</td>";
-                            echo "<td>" . $row->firstname .' '.$row->lastname . "</td>";
+                            echo "<td>" . $row->firstname . ' ' . $row->lastname . "</td>";
                             echo "<td>" . $row->last_update . "</td>";
                             echo "</tr>";
                         }

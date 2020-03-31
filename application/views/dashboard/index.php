@@ -94,14 +94,7 @@
                 </div>
             </div>
 
-            <div class="row mb-2 px-2">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                        <div class="card-title">World Map</div>
-                        <div id="world-map-gdp" style="width: 100%; height: 300px;"></div>
-                    </div>
-                </div>
-            </div>
+
 
 
             <div class="row mb-3">
@@ -113,7 +106,7 @@
                         </div>
                         <div class="card-body">
                             <div class="fsize-4">
-                                1283
+                                <?= $jumlah_user ?>
                             </div>
                         </div>
                     </div>
@@ -122,11 +115,11 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header">
-                            Jumlah User
+                            Jumlah Kursus
                         </div>
                         <div class="card-body">
                             <div class="fsize-4">
-                                1283
+                                <?= $jumlah_kursus ?>
                             </div>
                         </div>
                     </div>
@@ -135,11 +128,11 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header">
-                            Jumlah User
+                            Jumlah Dokter
                         </div>
                         <div class="card-body">
                             <div class="fsize-4">
-                                1283
+                                <?= $jumlah_dokter ?>
                             </div>
                         </div>
                     </div>
@@ -148,17 +141,24 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header">
-                            Jumlah User
+                            Jumlah Video
                         </div>
                         <div class="card-body">
                             <div class="fsize-4">
-                                1283
+                                <?= $jumlah_video ?>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div class="row mb-2 px-2">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        <div class="card-title">Peta Persebaran User</div>
+                        <div id="world-map-gdp" style="width: 100%; height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!--  -->

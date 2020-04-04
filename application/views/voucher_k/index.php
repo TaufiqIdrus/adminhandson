@@ -42,7 +42,7 @@
                             <?php } else if ($row->tersedia_untuk == "kategori") { ?>
                                 <td><a href="voucher_k/manage_kategori/<?= $row->id_voucher ?>" class="badge badge-primary">Manage</a></td>
                             <?php } else { ?>
-                                <td><a href="voucher_k/manage_semua/<?= $row->id_voucher ?>" class="badge badge-primary">Manage</a></td>
+                                <td>Tersedia untuk semua kursus</td>
                         <?php  }
                             echo "</tr>";
                         }

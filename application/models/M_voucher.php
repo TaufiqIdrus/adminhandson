@@ -118,6 +118,13 @@ class M_voucher extends CI_Model
         
     }
 
+    function manage_kategori($id_voucher)
+    {
+        $query = $this->db->get_where('voucher_k', array('id_voucher' => $id_voucher, 'status' => 'active'));
+            return $query->result();
+        
+    }
+
     function display_nama_kursus($id_kursus)
     {
         $query = $this->db->get_where('kursus', array('id_kursus' => $id_kursus, 'status' => 'active'));
@@ -142,7 +149,47 @@ class M_voucher extends CI_Model
             'username' => $this->session->userdata("nama"),
             'controller' => $this->uri->segment(1),
             'method' =>  $this->uri->segment(2),
-            'activity' => 'delete voucher',
+            'activity' => 'delete voucher kursus',
+            'ip_address' => $this->input->ip_address(),
+
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('log_aktivitas', $data);
+
+        $this->db->where('id_ket', $id);
+        $data = array(
+            'status' => 'deleted'
+        );
+        return $this->db->update('voucher_k', $data);
+
+        // return $this->db->delete('voucher', array('id_voucher' => $id));
+    }
+
+    function display_nama_kategori($id_kategori)
+    {
+        $query = $this->db->get_where('kategori', array('id_kategori' => $id_kategori, 'status' => 'active'));
+        if ($query->num_rows() > 0) {
+            return $query->result()[0]->kategori;
+        }else{
+            return "Kategori sudah tidak aktif";
+        }
+    }
+
+    function displaykategori($id_voucher)
+    {
+        $query = $this->db->query("SELECT * FROM kategori WHERE kategori.id_kategori not in (select id_kursus from voucher_k where id_voucher = '$id_voucher' and status = 'active') and status = 'active'");
+        return $query->result();
+    }
+
+    function delete_kategori($id)
+    {
+        $data = array(
+            'id_log' => uniqid(),
+            'id_user' => $this->session->userdata("id_user"),
+            'username' => $this->session->userdata("nama"),
+            'controller' => $this->uri->segment(1),
+            'method' =>  $this->uri->segment(2),
+            'activity' => 'delete voucher kategori',
             'ip_address' => $this->input->ip_address(),
 
         );

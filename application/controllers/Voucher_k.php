@@ -32,7 +32,7 @@ class Voucher_k extends CI_Controller
         $data['kursus'] = $this->m_voucher->manage_kursus($id_voucher);
         $data['id_voucher'] = $id_voucher;
         $this->load->view('templates/header', $data);
-        $this->load->view('voucher_k/manage', $data);
+        $this->load->view('voucher_k/managekursus', $data);
         $this->load->view('templates/footer');
     }
 
@@ -67,22 +67,23 @@ class Voucher_k extends CI_Controller
     function manage_kategori($id_voucher)
     {
         $data['judul'] = 'Manage Ketersediaan Voucher';
-        $data['voucher'] = $this->m_voucher->manage_kategori($id_voucher);
+        $data['kategori'] = $this->m_voucher->manage_kategori($id_voucher);
         $data['id_voucher'] = $id_voucher;
         $this->load->view('templates/header', $data);
-        $this->load->view('voucher_k/manage', $data);
+        $this->load->view('voucher_k/managekategori', $data);
         $this->load->view('templates/footer');
     }
 
-    function manage_semua($id_voucher)
+    function insertkategori($id_voucher)
     {
-        $data['judul'] = 'Manage Ketersediaan Voucher';
-        $data['voucher'] = $this->m_voucher->manage_semua($id_voucher);
+        $data['judul'] = 'Insert Kursus';
         $data['id_voucher'] = $id_voucher;
+        $data['kategori'] = $this->m_voucher->displaykategori($id_voucher);
         $this->load->view('templates/header', $data);
-        $this->load->view('voucher_k/manage', $data);
+        $this->load->view('voucher_k/insertkategori', $data);
         $this->load->view('templates/footer');
     }
+
 
     function arsip()
     {

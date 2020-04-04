@@ -12,7 +12,6 @@ class Dokterkursus extends CI_Controller
         }
         $this->load->model('m_kursus');
         $this->load->model('m_dokterkursus');
-        
         $this->load->model('m_babkursus');
         $this->load->model('m_kategori');
         $this->load->model('m_bahasa');

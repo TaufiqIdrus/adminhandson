@@ -3,42 +3,39 @@
         <div class="app-page-title">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
-                    <div>Manage Video Kursus
+                    <div>Manage Ketersediaan Voucher
                         <div class="page-title-subheading">
                         </div>
                     </div>
+                </div>
+                <div class="page-title-actions">
+                    <a href="<?= base_url() ?>voucher_k/insertkursus/<?= $id_voucher ?>" class="mb-2 mr-2 btn btn-primary">Insert Kursus</a>
                 </div>
             </div>
         </div>
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <a href="<?= base_url() ?>videokursus/arsip/" class="btn btn-primary"><i class="fas fa-archive fa-xs text-white rounded "></i> Arsip</a>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <div class="divider"></div>
                 <table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Judul Kursus</th>
-                            <th>Jumlah Video</th>
                             <th>Menu</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($kursus as $row) {
-                            echo "<tr>";
-                            echo "<td>" . $i++ . "</td>";
-                            echo "<td>" . $row->kursus . "</td>";
-                            echo "<td>" . $this->m_videokursus->display_jumlah($row->id_kursus) . "</td>";
-
-                        ?>
-                            <td>
-                                <a href="videokursus/manage/<?= $row->id_kursus ?>" class="badge badge-primary">Manage</a>
-                            </td>
-                        <?php
-                            echo "</tr>";
-                        }
-                        ?>
+                        foreach ($kursus as $row) { ?>
+                            <tr>
+                                <td><?= $i++ ?></td>
+                                <td><?= $this->m_voucher->display_nama_kursus($row->id_kursus) ?></td>
+                                <td>
+                                    <a href="<?= base_url() ?>voucher_k/delete/<?= $row->id_ket ?>"> <i class="fas fa-trash fa-xs text-white p-2 bg-danger rounded"></i></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

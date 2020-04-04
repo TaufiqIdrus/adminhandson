@@ -134,17 +134,19 @@ class Kursus extends CI_Controller
             ->setCellValue('D1', 'Deskripsi Singkat')
             ->setCellValue('E1', 'Deskripsi Full')
             ->setCellValue('F1', 'Harga')
-            ->setCellValue('G1', 'Rating')
-            ->setCellValue('H1', 'Durasi')
-            ->setCellValue('I1', 'Persyaratan')
-            ->setCellValue('J1', 'Gambar')
-            ->setCellValue('K1', 'Status')
-            ->setCellValue('L1', 'Kategori')
-            ->setCellValue('M1', 'Bahasa')
-            ->setCellValue('N1', 'Subtitle')
-            ->setCellValue('O1', 'Insert By')
-            ->setCellValue('P1', 'Insert Date')
-            ->setCellValue('Q1', 'Last Update');
+            ->setCellValue('G1', 'Harga Diskon')
+            ->setCellValue('H1', 'Persentase Diskon')
+            ->setCellValue('I1', 'Rating')
+            ->setCellValue('J1', 'Durasi')
+            ->setCellValue('K1', 'Persyaratan')
+            ->setCellValue('L1', 'Gambar')
+            ->setCellValue('M1', 'Status')
+            ->setCellValue('N1', 'Kategori')
+            ->setCellValue('O1', 'Bahasa')
+            ->setCellValue('P1', 'Subtitle')
+            ->setCellValue('Q1', 'Insert By')
+            ->setCellValue('R1', 'Insert Date')
+            ->setCellValue('S1', 'Last Update');
 
 
         $kolom = 2;
@@ -158,17 +160,19 @@ class Kursus extends CI_Controller
                 ->setCellValue('D' . $kolom, $kursus->deskripsi_singkat)
                 ->setCellValue('E' . $kolom, $kursus->deskripsi_full)
                 ->setCellValue('F' . $kolom, 'Rp. ' . number_format($kursus->harga, 0, ",", "."))
-                ->setCellValue('G' . $kolom, $kursus->rating)
-                ->setCellValue('H' . $kolom, $kursus->durasi . ' hari')
-                ->setCellValue('I' . $kolom, $kursus->persyaratan)
-                ->setCellValue('J' . $kolom, $kursus->gambar)
-                ->setCellValue('K' . $kolom, $kursus->status)
-                ->setCellValue('L' . $kolom, $kursus->id_kategori)
-                ->setCellValue('M' . $kolom, $kursus->id_bahasa)
-                ->setCellValue('N' . $kolom, $kursus->id_subtitle)
-                ->setCellValue('O' . $kolom, $kursus->insert_by)
-                ->setCellValue('P' . $kolom, $kursus->insert_date)
-                ->setCellValue('Q' . $kolom, $kursus->last_update);
+                ->setCellValue('G' . $kolom, 'Rp. ' . number_format($kursus->harga_diskon, 0, ",", "."))
+                ->setCellValue('H' . $kolom, $kursus->jumlahdiskon . ' %')
+                ->setCellValue('I' . $kolom, $kursus->rating)
+                ->setCellValue('J' . $kolom, $kursus->durasi . ' hari')
+                ->setCellValue('K' . $kolom, $kursus->persyaratan)
+                ->setCellValue('L' . $kolom, $kursus->gambar)
+                ->setCellValue('M' . $kolom, $kursus->status)
+                ->setCellValue('N' . $kolom, $this->m_kategori->display_byID($kursus->id_kategori)[0]->kategori)
+                ->setCellValue('O' . $kolom, $this->m_bahasa->display_byID($kursus->id_bahasa)[0]->bahasa)
+                ->setCellValue('P' . $kolom, $this->m_bahasa->display_byID($kursus->id_subtitle)[0]->bahasa)
+                ->setCellValue('Q' . $kolom, $kursus->insert_by)
+                ->setCellValue('R' . $kolom, $kursus->insert_date)
+                ->setCellValue('S' . $kolom, $kursus->last_update);
 
             $kolom++;
             $nomor++;

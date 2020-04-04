@@ -2,7 +2,7 @@
     <div class="app-main__inner">
         <div class="main-card mb-3 card">
             <div class="card-body">
-            <button onclick="kembali()" class="btn btn-secondary">kembali</button>
+                <button onclick="kembali()" class="btn btn-secondary">kembali</button>
                 <p class="h1">Update data Kursus</p>
                 <form action="<?= base_url() ?>kursus/update_kursus" method="POST" enctype="multipart/form-data">
                     <?php
@@ -17,7 +17,18 @@
 
                         <label for="harga" class="">Harga</label>
                         <input name="harga" type="number" class="form-control" value="<?= $row->harga ?>">
-                        <div class="divider"></div>
+
+                        <label for="jumlahdiskon" class="">Persentase Diskon</label>
+                        <input name="jumlahdiskon" type="number" class="form-control" value="<?= $row->jumlahdiskon ?>">
+
+                        <label for="harga_diskon" class="">Harga Setelah Diskon</label>
+                        <input name="harga_diskon" type="number" class="form-control " disabled value="<?= $row->harga_diskon ?>">
+
+                        <label for="awal_diskon" class="">Tanggal Diskon Mulai Berlaku</label>
+                        <input name="awal_diskon" class="form-control input-mask-trigger" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" im-insert="false" value="<?= $row->awal_diskon ?>">
+
+                        <label for="akhir_diskon" class="">Tanggal Diskon Berakhir</label>
+                        <input name="akhir_diskon" class="form-control input-mask-trigger" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" im-insert="false" value="<?= $row->akhir_diskon ?>">
 
                         <label for="durasi" class="">Durasi (Hari)</label>
                         <input name="durasi" type="number" class="form-control" value="<?= $row->durasi ?>">

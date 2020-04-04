@@ -6,7 +6,7 @@ class M_dokterkursus extends CI_Model
     function insert_dokter()
     {
         $data = array(
-            
+
             'id_dokter' => $this->input->post('id_dokter'),
             'id_kursus' => $this->input->post('id_kursus'),
             'insert_by' => $this->session->userdata("nama"),
@@ -36,8 +36,12 @@ class M_dokterkursus extends CI_Model
 
     function displaynamadokter($id)
     {
-        $query = $this->db->get_where('dokter', array('id_dokter' => $id));
-        return $query->result()[0]->dokter;
+        $query = $this->db->get_where('dokter', array('id_dokter' => $id, 'status' => 'active'));
+        if ($query->num_rows() > 0) {
+            return $query->result()[0]->dokter;
+        }else{
+            return "Dokter tidak aktif lagi";
+        }
     }
 
     function displayiddokter($id)
@@ -48,19 +52,19 @@ class M_dokterkursus extends CI_Model
 
     function displayjumlahdokter($id)
     {
-        $query = $this->db->get_where('dokter_kursus', array('id_kursus' => $id));
+        $query = $this->db->get_where('dokter_kursus', array('id_kursus' => $id, 'status' => 'active'));
         return $query->num_rows();
     }
 
     function displaykursus($id_bab)
     {
-        $query = $this->db->get_where('bab_kursus', array('id_bab' => $id_bab));
+        $query = $this->db->get_where('bab_kursus', array('id_bab' => $id_bab, 'status' => 'active'));
         return $query->result()[0]->bab_kursus;
     }
 
     function displaydokter($id_kursus)
     {
-        $query = $this->db->query("SELECT * FROM dokter WHERE dokter.id_dokter not in (select id_dokter from dokter_kursus where id_kursus = '$id_kursus' and status = 'active')");
+        $query = $this->db->query("SELECT * FROM dokter WHERE dokter.id_dokter not in (select id_dokter from dokter_kursus where id_kursus = '$id_kursus' and status = 'active') and status = 'active'");
         return $query->result();
     }
 
@@ -72,7 +76,7 @@ class M_dokterkursus extends CI_Model
             'status' => 'deleted'
         );
         return $this->db->update('dokter_kursus', $data);
-       // return $this->db->delete('dokter_kursus', array('id_dokterkursus' => $id));
+        // return $this->db->delete('dokter_kursus', array('id_dokterkursus' => $id));
         $data = array(
             'id_log' => uniqid(),
             'id_user' => $this->session->userdata("id_user"),
@@ -89,19 +93,19 @@ class M_dokterkursus extends CI_Model
 
     function arsip()
     {
-        $query = $this->db->get_where('dokter_kursus', array('status'=>'deleted'));
+        $query = $this->db->get_where('dokter_kursus', array('status' => 'deleted'));
         return $query->result();
     }
 
     function display_kursus($id)
     {
-        $query = $this->db->get_where('kursus', array('id_kursus' => $id));
+        $query = $this->db->get_where('kursus', array('id_kursus' => $id, 'status' => 'active'));
         return $query->result()[0]->kursus;
     }
 
     function display_dokter($id)
     {
-        $query = $this->db->get_where('dokter', array('id_dokter' => $id));
+        $query = $this->db->get_where('dokter', array('id_dokter' => $id, 'status' => 'active'));
         return $query->result()[0]->dokter;
     }
 }

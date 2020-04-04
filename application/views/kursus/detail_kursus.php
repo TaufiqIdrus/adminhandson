@@ -22,6 +22,18 @@
                         Rp <?= number_format($row->harga, 0, ",", "."); ?>
                     </div>
                     <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                        <h5 class="card-title">Harga Diskon</h5>
+                        Rp <?= number_format($row->harga_diskon, 0, ",", "."); ?> (<?=$row->jumlahdiskon?>%)
+                    </div>
+                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                        <h5 class="card-title">Awal Berlaku Diskon</h5>
+                        <?= $row->awal_diskon ?>
+                    </div>
+                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
+                        <h5 class="card-title">Akhir Berlaku Diskon</h5>
+                        <?= $row->akhir_diskon ?>
+                    </div>
+                    <div class="card-shadow-primary border mb-3 card card-body border-primary">
                         <h5 class="card-title">Durasi</h5>
                         <?= $row->durasi ?> Hari
                     </div>

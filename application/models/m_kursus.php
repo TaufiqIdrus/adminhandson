@@ -11,6 +11,10 @@ class M_kursus extends CI_Model
             'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
             'deskripsi_full' => $this->input->post('deskripsi_full'),
             'harga' => $this->input->post('harga'),
+            'jumlahdiskon' => $this->input->post('jumlahdiskon'),
+            'awal_diskon' => $this->input->post('awal_diskon'),
+            'akhir_diskon' => $this->input->post('akhir_diskon'),
+            'harga_diskon' => $this->input->post('harga') - $this->input->post('harga') * $this->input->post('jumlahdiskon') / 100,
             'durasi' => $this->input->post('durasi'),
             'persyaratan' => $this->input->post('persyaratan'),
             'gambar' => $this->_uploadImage(),
@@ -58,6 +62,8 @@ class M_kursus extends CI_Model
                 'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
                 'deskripsi_full' => $this->input->post('deskripsi_full'),
                 'harga' => $this->input->post('harga'),
+                'jumlahdiskon' => $this->input->post('jumlahdiskon'),
+                'harga_diskon' => $this->input->post('harga') - $this->input->post('harga') * $this->input->post('jumlahdiskon') / 100,
                 'durasi' => $this->input->post('durasi'),
                 'persyaratan' => $this->input->post('persyaratan'),
                 'gambar' => $this->_uploadImage(),
@@ -73,6 +79,8 @@ class M_kursus extends CI_Model
                 'deskripsi_singkat' => $this->input->post('deskripsi_singkat'),
                 'deskripsi_full' => $this->input->post('deskripsi_full'),
                 'harga' => $this->input->post('harga'),
+                'jumlahdiskon' => $this->input->post('jumlahdiskon'),
+                'harga_diskon' => $this->input->post('harga') - $this->input->post('harga') * $this->input->post('jumlahdiskon') / 100,
                 'durasi' => $this->input->post('durasi'),
                 'persyaratan' => $this->input->post('persyaratan'),
                 'gambar' => $this->input->post('old_image'),
@@ -160,11 +168,11 @@ class M_kursus extends CI_Model
 
     function arsip()
     {
-        $query = $this->db->get_where('kursus', array('status'=>'deleted'));
+        $query = $this->db->get_where('kursus', array('status' => 'deleted'));
         return $query->result();
     }
 
-    function export()    
+    function export()
     {
         $query = $this->db->query("select * from kursus");
         return $query->result();

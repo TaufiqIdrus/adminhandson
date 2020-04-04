@@ -16,7 +16,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID User</th>
+                            <th>Username</th>
                             <th>Controller</th>
                             <th>Method</th>
                             <th>Activity</th>
@@ -28,7 +28,7 @@
                         foreach ($logaktivitas as $row) {
                             echo "<tr>";
                             echo "<td>" . $i++ . "</td>";
-                            echo "<td>" . $row->id_user . "</td>";
+                            echo "<td>" . $row->username . "</td>";
                             echo "<td>" . $row->controller . "</td>";
                             echo "<td>" . $row->method . "</td>";
                             echo "<td>" . $row->activity . "</td>";

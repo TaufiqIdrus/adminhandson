@@ -17,21 +17,30 @@
                     <label for="harga" class="">Harga</label>
                     <input name="harga" type="number" class="form-control">
 
+                    <label for="jumlahdiskon" class="">Persentase Diskon</label>
+                    <input name="jumlahdiskon" type="number" class="form-control">
+
+                    <label for="awal_diskon" class="">Tanggal Diskon Mulai Berlaku</label>
+                    <input name="awal_diskon" class="form-control input-mask-trigger" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" im-insert="false">
+
+                    <label for="akhir_diskon" class="">Tanggal Diskon Berakhir</label>
+                    <input name="akhir_diskon" class="form-control input-mask-trigger" data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy-mm-dd" im-insert="false">
+
                     <label for="durasi" class="">Durasi (Hari)</label>
                     <input name="durasi" type="number" class="form-control">
 
-                    
+
                     <div class="divider"></div>
 
                     <label for="deskripsi_singkat" class="">Deskripsi Singkat</label>
-                    <textarea name="deskripsi_singkat" type="textarea" class="form-control"> </textarea>
+                    <textarea name="deskripsi_singkat" type="textarea" class="form-control"></textarea>
 
                     <label for="deskripsi_full" class="">Deskripsi Full</label>
-                    <textarea name="deskripsi_full" type="textarea" class="form-control"> </textarea>
+                    <textarea name="deskripsi_full" type="textarea" class="form-control"></textarea>
 
 
                     <label for="persyaratan" class="">Persyaratan</label>
-                    <textarea name="persyaratan" type="textarea" class="form-control"> </textarea>
+                    <textarea name="persyaratan" type="textarea" class="form-control"></textarea>
 
                     <div class="divider"></div>
 

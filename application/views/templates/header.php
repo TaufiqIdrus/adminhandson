@@ -24,7 +24,7 @@
     <div class="app-header header-shadow">
       <div class="app-header__logo">
         <div class="app-header__logo scrollbar-container ps">
-          <img src="<?=base_url()?>assets/logo/logofix.png"/></div>
+          <img src="<?= base_url() ?>assets/logo/logofix.png" /></div>
         <div class="header__pane ml-auto">
           <div>
             <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -113,39 +113,39 @@
                 </a>
               </li>
               <li>
-                <a href="<?= base_url() ?>kursus">
+                <a href="#">
                   <i class="fab fa-discourse fa-lg mr-2"></i>Kursus
                 </a>
                 <ul>
                   <li>
                     <a href="<?= base_url() ?>kursus">
-                      <i class="metismenu-icon"></i>Manage Kursus
+                      <i class="fab fa-discourse fa-lg mr-2"></i>Manage Kursus
                     </a>
                   </li>
                   <li>
                     <a href="<?= base_url() ?>dokterkursus">
-                      <i class="metismenu-icon"></i>Dokter Pengajar Kursus
+                      <i class="fab fa-discourse fa-lg mr-2"></i>Dokter Pengajar Kursus
                     </a>
                   </li>
                   <li>
                     <a href="<?= base_url() ?>videokursus">
-                      <i class="metismenu-icon"></i>Video Kursus
+                      <i class="fab fa-discourse fa-lg mr-2"></i>Video Kursus
                     </a>
                   </li>
                   <li>
                     <a href="<?= base_url() ?>babkursus">
-                      <i class="metismenu-icon"></i>Bab Video Kursus
+                      <i class="fab fa-discourse fa-lg mr-2"></i>Bab Video Kursus
                     </a>
                   </li>
                   <li>
                     <a href="<?= base_url() ?>quiz">
-                      <i class="metismenu-icon"></i>Quiz
+                      <i class="fab fa-discourse fa-lg mr-2"></i>Quiz
                     </a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="<?= base_url() ?>user">
+                <a href="#">
                   <i class="fas fa-user fa-lg mr-2"></i>Users
                 </a>
                 <ul>
@@ -180,6 +180,23 @@
                 <a href="<?= base_url() ?>logaktivitas">
                   <i class="fas fa-chart-line fa-lg mr-2"></i>Log Aktivitas
                 </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-gift fa-lg mr-2"></i>Voucher
+                </a>
+                <ul>
+                  <li>
+                    <a href="<?= base_url() ?>voucher">
+                      <i class="fas fa-gift fa-lg mr-2"></i>Manage Vourcher
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url() ?>voucher_k">
+                      <i class="fas fa-gift fa-lg mr-2"></i>Ketersediaan Voucher
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li>
                 <a href="<?= base_url() ?>kategori">

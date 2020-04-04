@@ -21,7 +21,7 @@ class Logaktivitas extends CI_Controller
 
     function index()
     {
-        $data['judul'] = 'Manage Logaktivitas';
+        $data['judul'] = 'Manage Log aktivitas';
         $data['logaktivitas'] = $this->m_logaktivitas->display();
         $this->load->view('templates/header', $data);
         $this->load->view('logaktivitas/index', $data);

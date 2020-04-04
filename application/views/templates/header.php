@@ -14,6 +14,7 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
   <link href="<?= base_url() ?>css/main.87c0748b313a1dda75f5.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.min.css">
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/main.87c0748b313a1dda75f5.js"> </script>
   <script type="text/javascript" src="<?= base_url() ?>assets/scripts/kembali.js"> </script>
 
@@ -102,6 +103,7 @@
         </div>
       </div>
     </div>
+    
     <div class="app-main">
       <div class="app-sidebar sidebar-shadow">
         <div class="scrollbar-sidebar">

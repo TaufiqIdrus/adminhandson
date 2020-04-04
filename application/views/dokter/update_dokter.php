@@ -1,5 +1,7 @@
 <div class="app-main__outer">
+<div class="animated slideInDown">
     <div class="app-main__inner">
+    <div class="app-page-title">
         <div class="main-card mb-3 card">
             <div class="card-body">
             <button onclick="kembali()" class="btn btn-secondary">kembali</button>

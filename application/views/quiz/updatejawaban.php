@@ -1,5 +1,7 @@
 <div class="app-main__outer">
+<div class="animated slideInDown">
   <div class="app-main__inner">
+  <div class="app-page-title">
     <div class="main-card mb-3 card">
       <div class="card-body">
         <a href="<?= base_url() ?>quiz/managepilihan/<?= $id_soal ?>?id_kursus=<?= $id_kursus ?>" class="btn btn-secondary">kembali</a>
